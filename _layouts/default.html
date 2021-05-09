@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{%- if layout.stylesheets %}
 		{%- for stylesheet in layout.stylesheets %}
-	<link rel="stylesheet" type="text/css" href="{{ stylesheet }}">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}{% link {{ stylesheet }} %}">
 		{%- endfor %}
 	{%- endif %}
-	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/default.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}{% link css/default.sass %}">
 	{% seo title=false %}
 	{%- if page.keywords %}
 		{%- assign keywords = page.keywords | concat: site.keywords %}
