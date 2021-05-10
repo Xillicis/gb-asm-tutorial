@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+
+{{ content }}
+
+{%- if false %} The `slice` assumes that there are only 2 components after `_tutorial/lang` {%- endif %}
+{%- assign cur_page = page.path | split: "/" | slice: 2, 2 | join: "/" %}
+{%- assign lang_id = page.path | split: "/" | slice: 1, 1 | first %}
+
+{%- assign found = false %}
+{%- for name in site.data.pages.en.pages %}
+  {%- if found %}
+    {%- assign path_next = page.path | split: "/" | slice: 0, 2 | join: "/" | append: "/" | append: name %}
+    {%- assign en_path_next = "_tutorial/en/" | append: name %}
+  {%- endif %}
+  {%- if name == cur_page %}
+  	{%- assign found = true %}
+  {%- endif %}
+{%- endfor %}
+
+{%- if false %} We need the next lesson's title, so BS our way via the `tutorial` collection {%- endif %}
+{%- assign tutorial = site.collections | where: "label", "tutorial" | first %}
+{%- for doc in tutorial.docs %}
+  {%- if doc.relative_path == path_next %}
+{%- capture next_link %}<a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.title }}</a>{% endcapture %}
+{%- assign found = false %}
+  {%- endif %}
+{%- endfor %}
+
+{%- if found %}
+  {%- for doc in tutorial.docs %}
+    {%- if doc.relative_path == en_path_next %}
+{%- capture next_link %}<a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.title }}</a> ({{ site.data.pages[lang_id].strings["fallback"] }}){% endcapture %}
+    {%- endif %}
+  {%- endfor %}
+{%- endif %}
+
+{%- if next_link %}
+<p>
+	{{ site.data.pages[lang_id].strings["next_lesson"] }} {{ next_link }}
+</p>
+{%- endif %}

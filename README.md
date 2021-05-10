@@ -19,9 +19,13 @@ Re-doing GB ASM Tutorial, and this time, until the end.
     "fr": {
         "name": "Français 🇫🇷",
         "pages": [
-        ]
+        ],
+        "strings": {
+            "fallback": "non traduit !",
+        },
     },
     ```
+    Note that you **must** translate the strings `strings` array!
 4.  Start translating pages (the originals in the `_tutorial/en` directory).
     Once a page has been translated, add it to the `pages` array in `_data/pages.json` you created just above.
     Don't include the `tutorial/<lang>/` part, however!

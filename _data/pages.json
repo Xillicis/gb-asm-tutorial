@@ -3,6 +3,11 @@
 		"name": "English 🇺🇸🇬🇧",
 		"pages": [
 			"part1/setup.md",
-		]
+			"part1/hello_world.md",
+		],
+		"strings": {
+			"fallback": "not translated!",
+			"next_lesson": "Next up:",
+		},
 	},
 }

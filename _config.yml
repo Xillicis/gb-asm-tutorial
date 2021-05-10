@@ -20,6 +20,7 @@ include: ["_pages"]
 collections:
   tutorial:
     output: true
+    # The `lesson` layout relies on the permalink format
     permalink: /:path
 
 # Front matter defaults
@@ -33,7 +34,7 @@ defaults:
   - scope:
       path: "_tutorial"
     values:
-      layout: "default"
+      layout: "lesson"
   # Locale for translations of the tutorial
   - scope:
       path: "_tutorial/en"
@@ -55,13 +56,9 @@ description: "A complete guide to programming Game Boy games in assembly."
 
 
 # Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - LICENSE.md
+  - README.md
