@@ -47,7 +47,7 @@ defaults:
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-baseurl: "/gb-asm-tutorial" # the subpath of your site, e.g. /blog
+baseurl: "/gb-asm-tutorial-v2" # the subpath of your site, e.g. /blog
 url: "https://eldred.fr"
 locale: "en-US"
 #google_site_verification: "ljmYhpaVJNaCEk64aV0NyYzauKGSEUtOS2nsYEx7JD0"
