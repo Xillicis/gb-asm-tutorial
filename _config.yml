@@ -17,6 +17,30 @@ plugins:
   - jekyll-sitemap
 include: ["_pages"]
 
+collections:
+  tutorial:
+    output: true
+    permalink: /:path
+
+# Front matter defaults
+defaults:
+  # Default locale for the site, which is in English
+  - scope:
+      path: ""
+    values:
+      locale: "en-US"
+  # Specific configuration for the tutorial
+  - scope:
+      path: "_tutorial"
+    values:
+      layout: "default"
+  # Locale for translations of the tutorial
+  - scope:
+      path: "_tutorial/en"
+    values:
+      locale: "en-US"
+  ## ADD NEW TRANSLATIONS ABOVE THIS LINE
+
 
 # Site settings
 # You can create any custom variable you would like, and they will be accessible
