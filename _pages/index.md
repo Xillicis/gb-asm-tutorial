@@ -18,7 +18,7 @@ If you are stuck in a certain part of the tutorial, want some advice, or just wi
 I actively participate there, and don't be afraid to ask questions!
 
 Noticed a problem with the tutorial?
-Please [check out our issue tracker](https://github.com/gb-asm-tutorial/issues); if there is no open issue about your problem, please create a new one, or reach out to us via the link above.
+Please [check out our issue tracker](https://github.com/ISSOtm/gb-asm-tutorial/issues); if there is no open issue about your problem, please create a new one, or reach out to us via the link above.
 
 If you are interested in contributing to or translating the tutorial, thank you!
 Follow the links above, I'd be happy to guide you.
