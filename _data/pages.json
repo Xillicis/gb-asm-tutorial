@@ -4,6 +4,9 @@
 		"pages": [
 			"part1/setup.md",
 			"part1/hello_world.md",
+			"part1/registers.md",
+			"part1/toolchain.md",
+			"part1/assembly.md",
 		],
 		"strings": {
 			"fallback": "not translated!",

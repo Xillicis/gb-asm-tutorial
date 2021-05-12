@@ -15,6 +15,7 @@ layout: default
   {%- if found %}
     {%- assign path_next = page.path | split: "/" | slice: 0, 2 | join: "/" | append: "/" | append: name %}
     {%- assign en_path_next = "_tutorial/en/" | append: name %}
+    {% break %}
   {%- endif %}
   {%- if name == cur_page %}
   	{%- assign found = true %}
