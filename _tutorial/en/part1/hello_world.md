@@ -2,6 +2,11 @@
 title: Hello World!
 ---
 
+<style>
+	ol.good-bad {
+		list-style-type: symbols(fixed "👍" "👎");
+	}
+</style>
 In this lesson, we will begin by assembling our first program.
 The rest of this chapter will be dedicated to explaining how and why it works.
 
@@ -19,6 +24,16 @@ $ rgbasm -o hello-world.o hello-world.asm
 $ rgblink -o hello-world.gb hello-world.o
 $ rgbfix -v -p 0xFF hello-world.gb
 {% endhighlight %}
+
+‼️ Be careful with arguments! They must be in a certain order, and must all be separated by some whitespace (though any amount works). If you need whitespace within an argument, you must quote it:
+
+{: .good-bad}
+1. `rgbasm -o hello world.o hello world.asm` won't work
+2. `rgbasm -o "hello world.o" "hello world.asm"` will work
+
+{: .good-bad}
+1. `rgbasm -o hello-world.asm hello-world.o` won't work (and may corrupt `hello-world.asm`!)
+2. `rgbasm hello-world.asm -o hello-world.o` will work
 
 It should look like this:
 <script id="asciicast-xfWYirngXORWF2t2jPGWz9nXB" src="https://asciinema.celforyon.fr/a/xfWYirngXORWF2t2jPGWz9nXB.js" async></script>

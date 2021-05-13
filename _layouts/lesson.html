@@ -2,14 +2,16 @@
 layout: default
 ---
 
+<main>
 <h1>{{ page.title }}</h1>
 
 {{ content }}
 
-{%- if false %} The `slice` assumes that there are only 2 components after `_tutorial/lang` {%- endif %}
+{%- comment %} The `slice` assumes that there are only 2 components after `_tutorial/lang` {%- endcomment %}
 {%- assign cur_page = page.path | split: "/" | slice: 2, 2 | join: "/" %}
 {%- assign lang_id = page.path | split: "/" | slice: 1, 1 | first %}
 
+{%- comment %} We assume the following loop will find the page, though we can't be sure of it :T {% endcomment %}
 {%- assign found = false %}
 {%- for name in site.data.pages.en.pages %}
   {%- if found %}
@@ -22,7 +24,7 @@ layout: default
   {%- endif %}
 {%- endfor %}
 
-{%- if false %} We need the next lesson's title, so BS our way via the `tutorial` collection {%- endif %}
+{%- comment %} We need the next lesson's title, so BS our way via the `tutorial` collection {%- endcomment %}
 {%- assign tutorial = site.collections | where: "label", "tutorial" | first %}
 {%- for doc in tutorial.docs %}
   {%- if doc.relative_path == path_next %}
@@ -31,6 +33,7 @@ layout: default
   {%- endif %}
 {%- endfor %}
 
+{%- comment %} If we haven't found the name translated, fall back to the English version {% endcomment %}
 {%- if found %}
   {%- for doc in tutorial.docs %}
     {%- if doc.relative_path == en_path_next %}
@@ -44,3 +47,22 @@ layout: default
 	{{ site.data.pages[lang_id].strings["next_lesson"] }} {{ next_link }}
 </p>
 {%- endif %}
+
+{%- if page.footnotes %}
+<footer>
+  Footnotes:
+  <ol>
+  {%- assign i = 0 %}
+  {%- for note in page.footnotes %}
+    {%- assign i = i | plus: 1 %}
+    {%- comment %} Append the link to the markdown itself, otherwise it will be outside of the last paragraph {%- endcomment %}
+    {%- capture text %} {{ note[1] }} <a href="#foot{{ i }}ref" title="Return to the referencing point">⮍</a> {% endcapture %}
+    <li id="foot{{ i }}">
+      {{ text | markdownify }}
+    </li>
+  {%- endfor %}
+  </ol>
+</footer>
+{%- endif %}
+
+</main>

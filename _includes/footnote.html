@@ -1,0 +1,7 @@
+{%- assign i = 0 %}
+{%- for note in page.footnotes %}
+	{%- assign i = i | plus: 1 %}
+	{%- if note[0] == include.id %}
+		<a href="#foot{{ i }}" id="foot{{ i }}ref">{{ i }}</a>
+	{%- endif %}
+{%- endfor %}
