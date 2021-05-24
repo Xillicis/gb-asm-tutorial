@@ -12,37 +12,51 @@ SECTION "Code", ROM0
 EntryPoint:
 	; Kill sound
 	ld a, 0
-	ldh [rNR52], a
+	ld [rNR52], a
 
 	; Do not turn the LCD off outside of VBlank
 .waitVBlank
-	ldh a, [rLY]
+	ld a, [rLY]
 	cp 144
-	jr c, .waitVBlank
+	jp c, .waitVBlank
 
 	; Turn the LCD off
 	ld a, 0
-	ldh [rLCDC], a
+	ld [rLCDC], a
 
 	; Copy the tiles
 	ld de, Tiles
 	ld hl, $9000
 	ld bc, Tiles.end - Tiles
-	call Memcpy
+.copyTiles
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec bc
+	ld a, b
+	or c
+	jp nz, .copyTiles
 
 	; Copy the tilemap
 	ld de, Tilemap
 	ld hl, _SCRN0
 	ld bc, Tilemap.end - Tilemap
-	call Memcpy
+.copyTilemap
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec bc
+	ld a, b
+	or c
+	jp nz, .copyTilemap
 
 	; Turn the LCD on
 	ld a, LCDCF_ON | LCDCF_BGON
-	ldh [rLCDC], a
+	ld [rLCDC], a
 
 	; During the first (blank) frame, initialize display registers
 	ld a, %11100100
-	ldh [rBGP], a
+	ld [rBGP], a
 
 .done
 	jp .done
@@ -50,14 +64,6 @@ EntryPoint:
 SECTION "Copy function", ROM0
 
 ; Copies `bc` bytes from `de` to `hl`
-Memcpy:
-	ld a, [de]
-	ld [hli], a
-	inc de
-	dec bc
-	ld a, b
-	or c
-	jr nz, Memcpy
 	ret
 
 
