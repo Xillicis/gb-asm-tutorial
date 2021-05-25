@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item expanded "><a href="../part1/memory.html" class="active"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item expanded "><a href="../part1/memory.html" class="active"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -183,7 +183,7 @@
 Since you have the basics, from now on, we’ll be looking at more and more concrete code.</p>
 </div>
 </div>
-<p>If we look at line 37, we see <code>ld a, [de]</code>.
+<p>If we look at line 34, we see <code>ld a, [de]</code>.
 Given what we just learned, this copies a value into register <code>a</code>... but where from?
 What do these brackets mean?
 To answer that, we need to talk about <em>memory</em>.</p>
@@ -251,13 +251,14 @@ It’s actually a special notation, which can also be written as <code>[hl+]</co
 It functions as <code>[hl]</code>, but <code>hl</code> is <em>incremented</em> just after memory is accessed.
 <code>[hld]</code>/<code>[hl-]</code> is the mirror of this one, <em>decrementing</em> <code>hl</code> instead of incrementing it.</p>
 <h2 id="an-example"><a class="header" href="#an-example">An example</a></h2>
-<p>So, if we look at the first two instructions of <code>Memcpy</code>:</p>
+<p>So, if we look at the first two instructions of <code>.copyTiles</code>:</p>
 <pre><code class="language-rgbasm">	ld a, [de]
 	ld [hli], a
 </code></pre>
 <p>...we can see that we’re copying the byte in memory <em>pointed to</em> by <code>de</code> (that is, whose address is contained in <code>de</code>) into the byte pointed to by <code>hl</code>.
 Here, <code>a</code> serves as temporary storage, since the CPU is unable to perform <code>ld [hl], [de]</code> directly.</p>
-<p>While we’re at this, let’s examine the rest of <code>Memcpy</code>!</p>
+<p>While we’re at this, let’s examine the rest of <code>.copyTiles</code> in the following lessons!</p>
+<hr />
 <div class="footnote-definition" id="memory_magnetic"><sup class="footnote-definition-label">1</sup>
 <p>Actually, this depends a lot on the type of memory.
 A lot of memory nowadays uses magnetic storage, but to keep the explanation simple, and to parallel the explanation of binary given earlier, let’s assume that current is being used.</p>

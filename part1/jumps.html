@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item expanded "><a href="../part1/jumps.html" class="active"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item expanded "><a href="../part1/jumps.html" class="active"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -177,7 +177,7 @@
                     <main>
                         <h1 id="jumps"><a class="header" href="#jumps">Jumps</a></h1>
 <div class="box tip">
-<p>Once this lesson is done, we will be able to understand all of <code>Memcpy</code>!</p>
+<p>Once this lesson is done, we will be able to understand all of <code>.copyTiles</code>!</p>
 </div>
 <p>So far, all the code we have seen has been linear: it executes top to bottom.
 But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (”if you don’t have butter, grease the pan with oil instead”), and sometimes, we need to perform actions repeatedly (”... repeat while there is batter remaining”).</p>
@@ -196,8 +196,8 @@ There are four of them:</p>
 <tr><td>Return</td><td><code>ret</code></td><td>Return from a subroutine</td></tr>
 </tbody></table>
 <p>We will focus on <code>jp</code> for now.
-<code>jp</code>, such as the one line 9, simply sets PC to its argument, jumping execution there.
-In other words, after executing <code>jp EntryPoint</code> (line 9), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 15 + 1 --> 16).</p>
+<code>jp</code>, such as the one line 8, simply sets PC to its argument, jumping execution there.
+In other words, after executing <code>jp EntryPoint</code> (line 8), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 14 + 1 --> 16).</p>
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
@@ -207,9 +207,62 @@ Don’t worry, we will see later why it’s required.</p>
 </div>
 <h2 id="conditional-jumps"><a class="header" href="#conditional-jumps">Conditional jumps</a></h2>
 <p>Now to the <em>really</em> interesting part.
-A very useful and unique property of the four jump instructions is that they can be executed <strong>conditoonally</strong>!
-This is how you execute a block of code conditionally: if the condition is false, just skip over it!</p>
-<p>Looping works similarly, by jumping backwards to the loop’s starting point.</p>
+Let’s examine the loop responsible for copying tiles:</p>
+<pre><code class="language-rgbasm linenos">	; Copy the tile data
+	ld de, Tiles
+	ld hl, $9000
+	ld bc, Tiles.end - Tiles
+.copyTiles
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec bc
+	ld a, b
+	or c
+	jp nz, .copyTiles
+</code></pre>
+<div class="box tip">
+<p>Don’t worry if you don’t quite get all of the following, as we’ll see it live in action in the next lesson.
+If you’re having trouble, try going to the next lesson, watch the code execute step by step; then, coming back here, it should make more sense.</p>
+</div>
+<p>First, we copy <code>Tiles</code>, the address of the first byte of tile data, into <code>de</code>.
+Then, we set <code>hl</code> to $9000, which is the address where we will start copying the tile data to.
+<code>ld bc, Tiles.end - Tiles</code> sets <code>bc</code> to the length of the tile data: <code>Tiles.end</code> is the address of the first byte <em>after</em> the tile data, so subtracting <code>Tiles</code> to that yields the length.</p>
+<p>So, basically:</p>
+<ul>
+<li><code>de</code> contains the address where data will be copied from;</li>
+<li><code>hl</code> contains the address where data will be copied to;</li>
+<li><code>bc</code> contains how many bytes we have to copy.</li>
+</ul>
+<p>Then we arrive at the main loop.
+We read one byte from the source (line 6), and write it to the destination (line 7).
+We increment the destination (via the implicit <code>inc hl</code> done by <code>ld [hli], a</code>) and source pointers (line 8), so the following loop iteration processes the next byte.</p>
+<p>Here’s the interesting part: since we’ve just copied one byte, that means we have one less to go, so we <code>dec bc</code>.
+(We have seen <code>dec</code> two lessons ago; as a refresher, it simply decreases the value stored in <code>bc</code> by one.)
+Since <code>bc</code> contains the amount of bytes that still need to be copied, it’s trivial to see that we should simply repeat the operation if <code>bc</code> != 0.</p>
+<div class="box danger decorated">
+<div><p>😓</p></div>
+<div>
+<p><code>dec</code> usually updates flags, but unfortunately <code>dec bc</code> doesn’t, so we must check if <code>bc</code> reached 0 manually.</p>
+</div>
+</div>
+<p><code>ld a, b</code> and <code>or c</code> “bitwise OR” <code>b</code> and <code>c</code> together; it’s sufficient to know for now that it leaves 0 in <code>a</code> if and only if <code>bc</code> == 0.
+And <code>or</code> updates the Z flag!
+So, after line 11, the Z flag is set if and only if <code>bc</code> == 0, that is, if we should exit the loop.</p>
+<p>And this is where conditional jumps come into the picture!
+See, it’s possible to <strong>conditionally</strong> “take” a jump depending on the state of the flags.</p>
+<p>There are four “conditions”:</p>
+<table><thead><tr><th>Name</th><th>Mnemonic</th><th>Description</th></tr></thead><tbody>
+<tr><td>Zero</td><td><code>z</code></td><td>Z is set (last operation had a result of 0)</td></tr>
+<tr><td>Non-zero</td><td><code>nz</code></td><td>Z is not set (last operation had a non-zero result)</td></tr>
+<tr><td>Carry</td><td><code>c</code></td><td>C is set (last operation overflowed)</td></tr>
+<tr><td>No carry</td><td><code>nc</code></td><td>C is not set (last operation did not overflow)</td></tr>
+</tbody></table>
+<p>Thus, <code>jp nz, .copyTiles</code> can be read as “if the Z flag is not set, then jump to <code>.copyTiles</code>“.
+Since we’re jumping <em>backwards</em>, we will repeat the instructions again: we have just created a <strong>loop</strong>!</p>
+<p>Okay, we’ve been talking about the code a lot, and we have seen it run, but we haven’t really seen <em>how</em> it runs.
+Let’s watch the magic unfold in slow-motion in the next lesson!</p>
+<hr />
 <div class="footnote-definition" id="pc_updates"><sup class="footnote-definition-label">1</sup>
 <p>Not exactly; instructions may be several bytes long, and PC increments after reading each byte.
 Notably, this means that when an instruction finishes executing, PC is pointing to the following instruction.
@@ -227,7 +280,7 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
                         
 
                         
-                            <a rel="next" href="../resources.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../part1/tracing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -245,7 +298,7 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
                 
 
                 
-                    <a rel="next" href="../resources.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../part1/tracing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

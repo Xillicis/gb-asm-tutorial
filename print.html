@@ -99,7 +99,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -233,13 +233,18 @@ Currently, <strong>Part I is being written</strong>, and Parts II and III should
 We will need:</p>
 <ol>
 <li>A POSIX environment</li>
-<li><a href="https://rgbds.gbdev.io">RGBDS</a> v0.5.1 (though v0.5.0 should be compatible)</li>
+<li><a href="https://rgbds.gbdev.io/install">RGBDS</a> v0.5.1 (though v0.5.0 should be compatible)</li>
 <li>GNU Make (preferably a recent version)</li>
 <li>A code editor</li>
 <li>A debugging emulator</li>
 </ol>
-<p>😕❓ The following install instructions are provided on a “best-effort” basis, but may be outdated, or not work for you for some reason.
-Don’t worry, we’re here to help: <a href="part1/../index.html#feedback">ask away in GBDev</a>, and we’ll help you installing everything!</p>
+<div class="box tip decorated">
+<div><p>❓😕</p></div>
+<div>
+<p>The following install instructions are provided on a “best-effort” basis, but may be outdated, or not work for you for some reason.
+Don’t worry, we’re here to help: <a href="part1/../index.html#feedback">ask away in GBDev</a>, and we’ll help you with installing everything!</p>
+</div>
+</div>
 <h2 id="tools"><a class="header" href="#tools">Tools</a></h2>
 <h3 id="linux--macos"><a class="header" href="#linux--macos">Linux &amp; macOS</a></h3>
 <p>Good news: you’re already fulfilling step 1!
@@ -260,7 +265,7 @@ Install WSL 1 or WSL 2, install a Linux distribution, and then follow these step
 As far as I’m aware, both of these provide a sufficiently up-to-date version of GNU Make.</p>
 <h2 id="code-editor"><a class="header" href="#code-editor">Code editor</a></h2>
 <p>Any code editor is fine; I personally use <a href="https://www.sublimetext.com">Sublime Text</a> with its <a href="https://packagecontrol.io/packages/RGBDS">RGBDS syntax package</a>; however, you can use any text editor, including Notepad, if you’re crazy enough.
-Awesome GBDev has <a href="https://gbdev.io/list.html#asm">a section on syntax highlighting packages</a>, see there if your favorite editor supports RGBDS.</p>
+Awesome GBDev has <a href="https://gbdev.io/list.html#syntax-highlighting-packages">a section on syntax highlighting packages</a>, see there if your favorite editor supports RGBDS.</p>
 <h2 id="emulator"><a class="header" href="#emulator">Emulator</a></h2>
 <p>Using an emulator to play games is one thing; using it to program games is another.
 The two aspects an emulator must fulfill to allow an enjoyable programming experience are:</p>
@@ -296,13 +301,13 @@ It’s a good idea to create a new directory (<code>mkdir gb_hello_world</code>,
 <p>For clarity, a <code>$</code> has been added at the beginning of each command, but don’t copy-paste them!</p>
 </div>
 </div>
-<pre><code class="language-console">$ rgbasm -L -o hello-world.o hello-world.asm
-$ rgblink -o hello-world.gb hello-world.o
-$ rgbfix -v -p 0xFF hello-world.gb
+<pre><code><span class="console-line hljs-meta"></span><span class="language-bash">rgbasm -L -o hello-world.o hello-world.asm</span>
+<span class="console-line hljs-meta"></span><span class="language-bash">rgblink -o hello-world.gb hello-world.o</span>
+<span class="console-line hljs-meta"></span><span class="language-bash">rgbfix -v -p 0xFF hello-world.gb</span>
 </code></pre>
 <style>
 	.box.danger ol {
-		list-style-type: symbols(fixed "👍" "👎");
+		list-style-type: symbols(fixed "👎" "👍" "👍");
 	}
 </style>
 <div class="box danger decorated">
@@ -313,10 +318,11 @@ $ rgbfix -v -p 0xFF hello-world.gb
 <li><code>rgbasm -L -o hello world.o hello world.asm</code> won’t work</li>
 <li><code>rgbasm -L -o &quot;hello world.o&quot; &quot;hello world.asm&quot;</code> will work</li>
 </ol>
-<!-- This separates the two lists -->
+<hr />
 <ol>
 <li><code>rgbasm -L -o hello-world.asm hello-world.o</code> won’t work (and may corrupt <code>hello-world.asm</code>!)</li>
-<li><code>rgbasm hello-world.asm -o hello-world.o</code> will work</li>
+<li><code>rgbasm -L hello-world.asm -o hello-world.o</code> will work</li>
+<li><code>rgbasm hello-world.asm -L -o hello-world.o</code> will also work</li>
 </ol>
 </div>
 </div>
@@ -372,7 +378,7 @@ It doesn’t hurt to get it right, though.</p>
 The <code>-v</code> option instructs RGBFIX to make the header <strong>v</strong>alid, by injecting the Nintendo logo and computing the two checksums.
 The <code>-p 0xFF</code> option instructs it to <strong>p</strong>ad the ROM to a valid size, and set the corresponding value in the “ROM size” header field.</p>
 <p>Alright!
-So the full story is: Source code → <code>rgbasm</code> → Object files → <code>rgblink</code> → “Raw” ROM → <code>rgblink</code> → “Fixed” ROM.
+So the full story is: Source code → <code>rgbasm</code> → Object files → <code>rgblink</code> → “Raw” ROM → <code>rgbfix</code> → “Fixed” ROM.
 Good.</p>
 <p>You might be wondering why RGBFIX’s functionality hasn’t been included directly in RGBLINK.
 There are some historical reasons, but RGBLINK can also be used to produce things other than ROMs (especially via the <code>-x</code> option), and RGBFIX is sometimes used without RGBLINK anywhere in sight.</p>
@@ -572,7 +578,7 @@ For example, in “melt the chocolate and butter in a saucepan”, <em>the whole
 <p>Let’s discuss the most fundamental instruction, <strong><code>ld</code></strong>.
 <code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>“</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>“</a>).
 For example, take line 14’s <code>ld a, 0</code>: it copies (”loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
-If you look further in the file, line 42 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
+If you look further in the file, line 38 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
 <table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Load</td><td><code>ld</code></td><td>Copies values around</td></tr>
 </tbody></table>
@@ -589,6 +595,7 @@ If you look further in the file, line 42 has <code>ld a, b</code>, which causes 
 The descriptions there are more succinct, since they’re intended as reminders, not as tutorials.</p>
 </div>
 </div>
+<hr />
 <div class="footnote-definition" id="instr_directive"><sup class="footnote-definition-label">1</sup>
 <p>Technically, instructions in RGBASM are implemented as directives, basically writing their encoded form to the ROM; but the distinction between the instructions in the source code and those in the final ROM is not worth bringing up right now.</p>
 </div>
@@ -604,7 +611,7 @@ We will come back to this when we talk about how instructions are encoded later 
 Since you have the basics, from now on, we’ll be looking at more and more concrete code.</p>
 </div>
 </div>
-<p>If we look at line 37, we see <code>ld a, [de]</code>.
+<p>If we look at line 34, we see <code>ld a, [de]</code>.
 Given what we just learned, this copies a value into register <code>a</code>... but where from?
 What do these brackets mean?
 To answer that, we need to talk about <em>memory</em>.</p>
@@ -672,13 +679,14 @@ It’s actually a special notation, which can also be written as <code>[hl+]</co
 It functions as <code>[hl]</code>, but <code>hl</code> is <em>incremented</em> just after memory is accessed.
 <code>[hld]</code>/<code>[hl-]</code> is the mirror of this one, <em>decrementing</em> <code>hl</code> instead of incrementing it.</p>
 <h2 id="an-example"><a class="header" href="#an-example">An example</a></h2>
-<p>So, if we look at the first two instructions of <code>Memcpy</code>:</p>
+<p>So, if we look at the first two instructions of <code>.copyTiles</code>:</p>
 <pre><code class="language-rgbasm">	ld a, [de]
 	ld [hli], a
 </code></pre>
 <p>...we can see that we’re copying the byte in memory <em>pointed to</em> by <code>de</code> (that is, whose address is contained in <code>de</code>) into the byte pointed to by <code>hl</code>.
 Here, <code>a</code> serves as temporary storage, since the CPU is unable to perform <code>ld [hl], [de]</code> directly.</p>
-<p>While we’re at this, let’s examine the rest of <code>Memcpy</code>!</p>
+<p>While we’re at this, let’s examine the rest of <code>.copyTiles</code> in the following lessons!</p>
+<hr />
 <div class="footnote-definition" id="memory_magnetic"><sup class="footnote-definition-label">1</sup>
 <p>Actually, this depends a lot on the type of memory.
 A lot of memory nowadays uses magnetic storage, but to keep the explanation simple, and to parallel the explanation of binary given earlier, let’s assume that current is being used.</p>
@@ -776,7 +784,7 @@ Great!</p>
 </tbody></table>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="jumps"><a class="header" href="#jumps">Jumps</a></h1>
 <div class="box tip">
-<p>Once this lesson is done, we will be able to understand all of <code>Memcpy</code>!</p>
+<p>Once this lesson is done, we will be able to understand all of <code>.copyTiles</code>!</p>
 </div>
 <p>So far, all the code we have seen has been linear: it executes top to bottom.
 But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (”if you don’t have butter, grease the pan with oil instead”), and sometimes, we need to perform actions repeatedly (”... repeat while there is batter remaining”).</p>
@@ -795,8 +803,8 @@ There are four of them:</p>
 <tr><td>Return</td><td><code>ret</code></td><td>Return from a subroutine</td></tr>
 </tbody></table>
 <p>We will focus on <code>jp</code> for now.
-<code>jp</code>, such as the one line 9, simply sets PC to its argument, jumping execution there.
-In other words, after executing <code>jp EntryPoint</code> (line 9), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 15 + 1 --> 16).</p>
+<code>jp</code>, such as the one line 8, simply sets PC to its argument, jumping execution there.
+In other words, after executing <code>jp EntryPoint</code> (line 8), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 14 + 1 --> 16).</p>
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
@@ -806,14 +814,68 @@ Don’t worry, we will see later why it’s required.</p>
 </div>
 <h2 id="conditional-jumps"><a class="header" href="#conditional-jumps">Conditional jumps</a></h2>
 <p>Now to the <em>really</em> interesting part.
-A very useful and unique property of the four jump instructions is that they can be executed <strong>conditoonally</strong>!
-This is how you execute a block of code conditionally: if the condition is false, just skip over it!</p>
-<p>Looping works similarly, by jumping backwards to the loop’s starting point.</p>
+Let’s examine the loop responsible for copying tiles:</p>
+<pre><code class="language-rgbasm linenos">	; Copy the tile data
+	ld de, Tiles
+	ld hl, $9000
+	ld bc, Tiles.end - Tiles
+.copyTiles
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec bc
+	ld a, b
+	or c
+	jp nz, .copyTiles
+</code></pre>
+<div class="box tip">
+<p>Don’t worry if you don’t quite get all of the following, as we’ll see it live in action in the next lesson.
+If you’re having trouble, try going to the next lesson, watch the code execute step by step; then, coming back here, it should make more sense.</p>
+</div>
+<p>First, we copy <code>Tiles</code>, the address of the first byte of tile data, into <code>de</code>.
+Then, we set <code>hl</code> to $9000, which is the address where we will start copying the tile data to.
+<code>ld bc, Tiles.end - Tiles</code> sets <code>bc</code> to the length of the tile data: <code>Tiles.end</code> is the address of the first byte <em>after</em> the tile data, so subtracting <code>Tiles</code> to that yields the length.</p>
+<p>So, basically:</p>
+<ul>
+<li><code>de</code> contains the address where data will be copied from;</li>
+<li><code>hl</code> contains the address where data will be copied to;</li>
+<li><code>bc</code> contains how many bytes we have to copy.</li>
+</ul>
+<p>Then we arrive at the main loop.
+We read one byte from the source (line 6), and write it to the destination (line 7).
+We increment the destination (via the implicit <code>inc hl</code> done by <code>ld [hli], a</code>) and source pointers (line 8), so the following loop iteration processes the next byte.</p>
+<p>Here’s the interesting part: since we’ve just copied one byte, that means we have one less to go, so we <code>dec bc</code>.
+(We have seen <code>dec</code> two lessons ago; as a refresher, it simply decreases the value stored in <code>bc</code> by one.)
+Since <code>bc</code> contains the amount of bytes that still need to be copied, it’s trivial to see that we should simply repeat the operation if <code>bc</code> != 0.</p>
+<div class="box danger decorated">
+<div><p>😓</p></div>
+<div>
+<p><code>dec</code> usually updates flags, but unfortunately <code>dec bc</code> doesn’t, so we must check if <code>bc</code> reached 0 manually.</p>
+</div>
+</div>
+<p><code>ld a, b</code> and <code>or c</code> “bitwise OR” <code>b</code> and <code>c</code> together; it’s sufficient to know for now that it leaves 0 in <code>a</code> if and only if <code>bc</code> == 0.
+And <code>or</code> updates the Z flag!
+So, after line 11, the Z flag is set if and only if <code>bc</code> == 0, that is, if we should exit the loop.</p>
+<p>And this is where conditional jumps come into the picture!
+See, it’s possible to <strong>conditionally</strong> “take” a jump depending on the state of the flags.</p>
+<p>There are four “conditions”:</p>
+<table><thead><tr><th>Name</th><th>Mnemonic</th><th>Description</th></tr></thead><tbody>
+<tr><td>Zero</td><td><code>z</code></td><td>Z is set (last operation had a result of 0)</td></tr>
+<tr><td>Non-zero</td><td><code>nz</code></td><td>Z is not set (last operation had a non-zero result)</td></tr>
+<tr><td>Carry</td><td><code>c</code></td><td>C is set (last operation overflowed)</td></tr>
+<tr><td>No carry</td><td><code>nc</code></td><td>C is not set (last operation did not overflow)</td></tr>
+</tbody></table>
+<p>Thus, <code>jp nz, .copyTiles</code> can be read as “if the Z flag is not set, then jump to <code>.copyTiles</code>“.
+Since we’re jumping <em>backwards</em>, we will repeat the instructions again: we have just created a <strong>loop</strong>!</p>
+<p>Okay, we’ve been talking about the code a lot, and we have seen it run, but we haven’t really seen <em>how</em> it runs.
+Let’s watch the magic unfold in slow-motion in the next lesson!</p>
+<hr />
 <div class="footnote-definition" id="pc_updates"><sup class="footnote-definition-label">1</sup>
 <p>Not exactly; instructions may be several bytes long, and PC increments after reading each byte.
 Notably, this means that when an instruction finishes executing, PC is pointing to the following instruction.
 Still, it’s pretty much “where the CPU is currently reading from”, but it’s better to keep it simple and avoid mentioning instruction encoding for now.</p>
 </div>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="tracing"><a class="header" href="#tracing">Tracing</a></h1>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
 <p>A.k.a. “where to go from here”.</p>
 <p>FIXME: This is not properly written yet...</p>

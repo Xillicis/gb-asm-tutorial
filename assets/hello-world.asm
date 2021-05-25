@@ -24,7 +24,7 @@ EntryPoint:
 	ld a, 0
 	ld [rLCDC], a
 
-	; Copy the tiles
+	; Copy the tile data
 	ld de, Tiles
 	ld hl, $9000
 	ld bc, Tiles.end - Tiles
@@ -39,7 +39,7 @@ EntryPoint:
 
 	; Copy the tilemap
 	ld de, Tilemap
-	ld hl, _SCRN0
+	ld hl, $9800
 	ld bc, Tilemap.end - Tilemap
 .copyTilemap
 	ld a, [de]
@@ -60,11 +60,6 @@ EntryPoint:
 
 .done
 	jp .done
-
-SECTION "Copy function", ROM0
-
-; Copies `bc` bytes from `de` to `hl`
-	ret
 
 
 SECTION "Tile data", ROM0

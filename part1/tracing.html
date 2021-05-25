@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Hello World! - GB ASM Tutorial</title>
+        <title>Tracing - GB ASM Tutorial</title>
         
         
 
@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item expanded "><a href="../part1/hello_world.html" class="active"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item expanded "><a href="../part1/tracing.html" class="active"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,7 +143,7 @@
                         </a>
                         
                         
-                        <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/hello_world.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/tracing.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
                         
@@ -175,76 +175,20 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="hello-world"><a class="header" href="#hello-world">Hello World!</a></h1>
-<p>In this lesson, we will begin by assembling our first program.
-The rest of this chapter will be dedicated to explaining how and why it works.</p>
-<p>Note that we will need to type a lot of commands, so open a terminal now.
-It’s a good idea to create a new directory (<code>mkdir gb_hello_world</code>, for example, then <code>cd gb_hello_world</code> to enter the new directory).</p>
-<p>Grab the following files (right-click each link, “Save Link As...”), and place them all in this new directory:</p>
-<ul>
-<li><a href="../assets/hello-world.asm"><code>hello-world.asm</code></a></li>
-<li><a href="https://raw.githubusercontent.com/gbdev/hardware.inc/v4.0/hardware.inc"><code>hardware.inc</code></a></li>
-</ul>
-<p>Then, still from a terminal within that directory, run the following three commands.</p>
-<div class="box warning decorated">
-<div><p>⚠️</p></div>
-<div>
-<p>For clarity, a <code>$</code> has been added at the beginning of each command, but don’t copy-paste them!</p>
-</div>
-</div>
-<pre><code><span class="console-line hljs-meta"></span><span class="language-bash">rgbasm -L -o hello-world.o hello-world.asm</span>
-<span class="console-line hljs-meta"></span><span class="language-bash">rgblink -o hello-world.gb hello-world.o</span>
-<span class="console-line hljs-meta"></span><span class="language-bash">rgbfix -v -p 0xFF hello-world.gb</span>
-</code></pre>
-<style>
-	.box.danger ol {
-		list-style-type: symbols(fixed "👎" "👍" "👍");
-	}
-</style>
-<div class="box danger decorated">
-<div><p>‼️</p></div>
-<div>
-<p>Be careful with arguments! They must be in a certain order, and must all be separated by some whitespace (though any amount works). If you need whitespace within an argument, you must quote it:</p>
-<ol>
-<li><code>rgbasm -L -o hello world.o hello world.asm</code> won’t work</li>
-<li><code>rgbasm -L -o &quot;hello world.o&quot; &quot;hello world.asm&quot;</code> will work</li>
-</ol>
-<hr />
-<ol>
-<li><code>rgbasm -L -o hello-world.asm hello-world.o</code> won’t work (and may corrupt <code>hello-world.asm</code>!)</li>
-<li><code>rgbasm -L hello-world.asm -o hello-world.o</code> will work</li>
-<li><code>rgbasm hello-world.asm -L -o hello-world.o</code> will also work</li>
-</ol>
-</div>
-</div>
-<p>It should look like this:</p>
-<script id="asciicast-weljUlcp1KC5GqS9jqV62dy5m" src="https://asciinema.celforyon.fr/a/weljUlcp1KC5GqS9jqV62dy5m.js" async></script>
-<p>(If you encounter an error you can’t figure out by yourself, don’t be afraid to <a href="../index.html#feedback">ask us</a>! We’ll sort it out.)</p>
-<p>Congrats!
-You just assembled your first Game Boy ROM!
-Now, we just need to run it; open BGB, right-click the window that opened, and load <code>hello-world.gb</code>.</p>
-<video controls poster="../assets/vid/hello_world.poster.png">
-	<source src="../assets/vid/hello_world.webm" type="video/webm">
-	<source src="../assets/vid/hello_world.mp4" type="video/mp4">
-<pre><code>&lt;img src=&quot;../assets/vid/hello_world.gif&quot; alt=&quot;Video demonstration in BGB&quot;&gt;
-</code></pre>
-</video>
-<p>You could also take a flash cart (I use the <a href="https://krikzz.com/store/home/47-everdrive-gb.html">EverDrive GB X5</a>, but there are plenty of alternatives), load up your ROM onto it, and run it on an actual console!</p>
-<p><img src="../assets/img/hello_dmg.jpg" alt="Picture of the Hello World running on a physical DMG" /></p>
-<p>Well, now that we have something working, it’s time to peel back the curtains...</p>
+                        <h1 id="tracing"><a class="header" href="#tracing">Tracing</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../part1/setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../part1/jumps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../part1/toolchain.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../resources.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -256,13 +200,13 @@ Now, we just need to run it; open BGB, right-click the window that opened, and l
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../part1/setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../part1/jumps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../part1/toolchain.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../resources.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

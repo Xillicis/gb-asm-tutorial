@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item expanded "><a href="../part1/setup.html" class="active"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item expanded "><a href="../part1/setup.html" class="active"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -180,13 +180,18 @@
 We will need:</p>
 <ol>
 <li>A POSIX environment</li>
-<li><a href="https://rgbds.gbdev.io">RGBDS</a> v0.5.1 (though v0.5.0 should be compatible)</li>
+<li><a href="https://rgbds.gbdev.io/install">RGBDS</a> v0.5.1 (though v0.5.0 should be compatible)</li>
 <li>GNU Make (preferably a recent version)</li>
 <li>A code editor</li>
 <li>A debugging emulator</li>
 </ol>
-<p>😕❓ The following install instructions are provided on a “best-effort” basis, but may be outdated, or not work for you for some reason.
-Don’t worry, we’re here to help: <a href="../index.html#feedback">ask away in GBDev</a>, and we’ll help you installing everything!</p>
+<div class="box tip decorated">
+<div><p>❓😕</p></div>
+<div>
+<p>The following install instructions are provided on a “best-effort” basis, but may be outdated, or not work for you for some reason.
+Don’t worry, we’re here to help: <a href="../index.html#feedback">ask away in GBDev</a>, and we’ll help you with installing everything!</p>
+</div>
+</div>
 <h2 id="tools"><a class="header" href="#tools">Tools</a></h2>
 <h3 id="linux--macos"><a class="header" href="#linux--macos">Linux &amp; macOS</a></h3>
 <p>Good news: you’re already fulfilling step 1!
@@ -207,7 +212,7 @@ Install WSL 1 or WSL 2, install a Linux distribution, and then follow these step
 As far as I’m aware, both of these provide a sufficiently up-to-date version of GNU Make.</p>
 <h2 id="code-editor"><a class="header" href="#code-editor">Code editor</a></h2>
 <p>Any code editor is fine; I personally use <a href="https://www.sublimetext.com">Sublime Text</a> with its <a href="https://packagecontrol.io/packages/RGBDS">RGBDS syntax package</a>; however, you can use any text editor, including Notepad, if you’re crazy enough.
-Awesome GBDev has <a href="https://gbdev.io/list.html#asm">a section on syntax highlighting packages</a>, see there if your favorite editor supports RGBDS.</p>
+Awesome GBDev has <a href="https://gbdev.io/list.html#syntax-highlighting-packages">a section on syntax highlighting packages</a>, see there if your favorite editor supports RGBDS.</p>
 <h2 id="emulator"><a class="header" href="#emulator">Emulator</a></h2>
 <p>Using an emulator to play games is one thing; using it to program games is another.
 The two aspects an emulator must fulfill to allow an enjoyable programming experience are:</p>
