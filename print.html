@@ -4,52 +4,37 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>GB ASM Tutorial</title>
-        
-        <meta name="robots" content="noindex" />
-        
-        
-
+                <meta name="robots" content="noindex" />
+                
 
         <!-- Custom HTML head -->
         
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
-        <link rel="icon" href="favicon.svg">
-        
-        
-        <link rel="shortcut icon" href="favicon.png">
-        
-        <link rel="stylesheet" href="css/variables.css">
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
         
-        <link rel="stylesheet" href="css/print.css" media="print">
-        
-
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
         
-        <link rel="stylesheet" href="fonts/fonts.css">
-        
-
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="css/custom.css">
         
-        <link rel="stylesheet" href="css/custom.css">
-        
-
-        
-    </head>
+            </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
@@ -99,8 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I - Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II - Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III - Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>
-            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I — Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -124,33 +108,25 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
-                    </div>
+                                            </div>
 
                     <h1 class="menu-title">GB ASM Tutorial</h1>
 
                     <div class="right-buttons">
-                        
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
-                        <a href="https://github.com/ISSOtm/gb-asm-tutorial" title="Git repository" aria-label="Git repository">
+                                                                        <a href="https://github.com/ISSOtm/gb-asm-tutorial" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
-                        
-
+                                                
                     </div>
                 </div>
 
-                
-                <div id="search-wrapper" class="hidden">
+                                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
@@ -161,7 +137,6 @@
                     </div>
                 </div>
                 
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -214,11 +189,11 @@ Anti-spam measure, I hope you understand.</p>
 </ul>
 <p><strong>Full details</strong>, please follow these links for more information on the respective licenses:</p>
 <ul>
-<li>All of the code contained within the tutorial itself is licensed under <a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a>. <em>To the extent possible under law, all copyright and related or neighboring rights to code presented within GB ASM Tutorial have been waived. This work is published from France.</em></li>
+<li>All the code contained within the tutorial itself is licensed under <a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a>. <em>To the extent possible under law, all copyright and related or neighboring rights to code presented within GB ASM Tutorial have been waived. This work is published from France.</em></li>
 <li>The contents (prose, images, etc.) of this tutorial are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</li>
 <li>Code used to display and format the site is licensed under the <a href="https://github.com/ISSOtm/gb-asm-tutorial/blob/master/LICENSE">MIT License</a> unless otherwise specified.</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The tutorial is split into three sections.
 <strong>I strongly advise you go through the tutorial in order!</strong></p>
 <p>In Part I, we run our first “Hello World!” program, which we then dissect to learn what makes the Game Boy tick.</p>
@@ -228,7 +203,7 @@ Along the way, we will make plenty of mistakes, so we can learn how to debug our
 <hr />
 <p>Unfortunately, this tutorial is a work in progress.
 Currently, <strong>Part I is being written</strong>, and Parts II and III should follow soon after.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="setup"><a class="header" href="#setup">Setup</a></h1>
 <p>First, we should set up our dev environment.
 We will need:</p>
 <ol>
@@ -259,10 +234,14 @@ At the time of writing, this should print a warning that the updated Make has be
 <p>If <code>make</code> cannot be found, you may need to install your distribution’s <code>build-essentials</code>.</p>
 <h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
 <p>The sad truth is that Windows is a terrible OS for development; however, you can install environments that solve most issues.</p>
-<p>On Windows 10, your best bet is <a href="https://docs.microsoft.com/en-us/windows/wsl">WSL</a>.
-Install WSL 1 or WSL 2, install a Linux distribution, and then follow these steps again, but for the Linux distribution you installed.</p>
+<p>On Windows 10, your best bet is <a href="https://docs.microsoft.com/en-us/windows/wsl">WSL</a>, which sort of allows running a Linux distribution within Windows.
+Install WSL 1 or WSL 2, then a distribution of your choice, and then follow these steps again, but for the Linux distribution you installed.</p>
 <p>If WSL is not an option, you can use <a href="https://www.msys2.org">MSYS2</a> or <a href="https://www.cygwin.com">Cygwin</a> instead; then check out the bottom of <a href="https://rgbds.gbdev.io/install/windows">RGBDS’ Windows install instructions</a>.
 As far as I’m aware, both of these provide a sufficiently up-to-date version of GNU Make.</p>
+<div class="box tip">
+<p>If you have programmed for other consoles, such as the GBA, check if MSYS2 isn’t already installed on your machine.
+This is because devkitPro, a popular homebrew development bundle, includes MSYS2.</p>
+</div>
 <h2 id="code-editor"><a class="header" href="#code-editor">Code editor</a></h2>
 <p>Any code editor is fine; I personally use <a href="https://www.sublimetext.com">Sublime Text</a> with its <a href="https://packagecontrol.io/packages/RGBDS">RGBDS syntax package</a>; however, you can use any text editor, including Notepad, if you’re crazy enough.
 Awesome GBDev has <a href="https://gbdev.io/list.html#syntax-highlighting-packages">a section on syntax highlighting packages</a>, see there if your favorite editor supports RGBDS.</p>
@@ -278,13 +257,13 @@ These are vital if you want GB dev to be <em>fun</em>, trust me!</li>
 <li><strong>Good accuracy</strong>:
 Accuracy means “how faithful to the original console something is”.
 Using a bad emulator for playing games can work (to some extent, and even then...), but using it for <em>developing</em> a game makes it likely to accidentally render your game incompatible with the actual console.
-For more info, read <a href="https://arstechnica.com/?post_type=post&amp;p=44524">this article on Ars Technica</a> (especially the “An emulator for every game” section at the top of page 2).
+For more info, read <a href="https://arstechnica.com/?post_type=post&amp;p=44524">this article on Ars Technica</a> (especially the <q>An emulator for every game</q> section at the top of page 2).
 You can compare GB emulator accuracy on <a href="https://daid.github.io/GBEmulatorShootout/">Daid’s GB-emulator-shootout</a>.</li>
 </ul>
 <p>The emulator I will be using for this tutorial is <a href="https://bgb.bircd.org">BGB</a> (1.5.9 when I’m writing this).
 It’s Windows-only, but macOS and Linux users can install Wine to be able to run it, and macOS users will additionally have to use the 64-bit version.
 Other debugging emulators are possible (such as SameBoy on macOS), but I will be giving directives for and including screenshots of BGB.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World!</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World!</a></h1>
 <p>In this lesson, we will begin by assembling our first program.
 The rest of this chapter will be dedicated to explaining how and why it works.</p>
 <p>Note that we will need to type a lot of commands, so open a terminal now.
@@ -298,7 +277,7 @@ It’s a good idea to create a new directory (<code>mkdir gb_hello_world</code>,
 <div class="box warning decorated">
 <div><p>⚠️</p></div>
 <div>
-<p>For clarity, a <code>$</code> has been added at the beginning of each command, but don’t copy-paste them!</p>
+<p>To clarify where each individual command begins, I’ve added a <code>$</code> before each command, but don’t type them!</p>
 </div>
 </div>
 <pre><code><span class="console-line hljs-meta"></span><span class="language-bash">rgbasm -L -o hello-world.o hello-world.asm</span>
@@ -313,16 +292,16 @@ It’s a good idea to create a new directory (<code>mkdir gb_hello_world</code>,
 <div class="box danger decorated">
 <div><p>‼️</p></div>
 <div>
-<p>Be careful with arguments! They must be in a certain order, and must all be separated by some whitespace (though any amount works). If you need whitespace within an argument, you must quote it:</p>
-<ol>
-<li><code>rgbasm -L -o hello world.o hello world.asm</code> won’t work</li>
-<li><code>rgbasm -L -o &quot;hello world.o&quot; &quot;hello world.asm&quot;</code> will work</li>
-</ol>
-<hr />
+<p>Be careful with arguments! Some options, such as <code>-o</code> here, use the argument after them as a parameter:</p>
 <ol>
 <li><code>rgbasm -L -o hello-world.asm hello-world.o</code> won’t work (and may corrupt <code>hello-world.asm</code>!)</li>
 <li><code>rgbasm -L hello-world.asm -o hello-world.o</code> will work</li>
-<li><code>rgbasm hello-world.asm -L -o hello-world.o</code> will also work</li>
+<li><code>rgbasm hello-world.asm -o hello-world.o -L</code> will also work</li>
+</ol>
+<p>If you need whitespace within an argument, you must quote it:</p>
+<ol>
+<li><code>rgbasm -L -o hello world.o hello world.asm</code> won’t work</li>
+<li><code>rgbasm -L -o &quot;hello world.o&quot; &quot;hello world.asm&quot;</code> will work</li>
 </ol>
 </div>
 </div>
@@ -341,7 +320,7 @@ Now, we just need to run it; open BGB, right-click the window that opened, and l
 <p>You could also take a flash cart (I use the <a href="https://krikzz.com/store/home/47-everdrive-gb.html">EverDrive GB X5</a>, but there are plenty of alternatives), load up your ROM onto it, and run it on an actual console!</p>
 <p><img src="part1/../assets/img/hello_dmg.jpg" alt="Picture of the Hello World running on a physical DMG" /></p>
 <p>Well, now that we have something working, it’s time to peel back the curtains...</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="the-toolchain"><a class="header" href="#the-toolchain">The toolchain</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-toolchain"><a class="header" href="#the-toolchain">The toolchain</a></h1>
 <p>So, in the previous lesson, we built a nice little “Hello World!” ROM.
 Now, let’s find out exactly what we did.</p>
 <h2 id="rgbasm-and-rgblink"><a class="header" href="#rgbasm-and-rgblink">RGBASM and RGBLINK</a></h2>
@@ -351,7 +330,7 @@ It is responsible for reading the source code (in our case, <code>hello-world.as
 RGBASM does not always have enough information to produce a full ROM, so it does most of the work, and stores its intermediary results in what’s known as <em>object files</em> (hence the <code>.o</code> extension).</p>
 <p>RGBLINK is a <em>linker</em>.
 Its job is taking object files (or, like in our case, just one), and “linking” them into a ROM.
-RGBLINK’s purpose may not be obvious for programs as simple as this Hello World, but it will become much clearer in Part II.</p>
+RGBLINK’s purpose may not be obvious with programs as simple as this Hello World, but it will become much clearer in Part II.</p>
 <p>So: Source code → <code>rgbasm</code> → Object files → <code>rgblink</code> → ROM, right?
 Well, not exactly.</p>
 <h2 id="rgbfix"><a class="header" href="#rgbfix">RGBFIX</a></h2>
@@ -386,7 +365,7 @@ There are some historical reasons, but RGBLINK can also be used to produce thing
 <p>Note that RGBDS does not care at all about the files’ extensions.
 Some people call their source code <code>.s</code>, for example, or their object files <code>.obj</code>.
 The file names don’t matter, either; it’s just practical to keep the same name.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="binary-and-hexadecimal"><a class="header" href="#binary-and-hexadecimal">Binary and hexadecimal</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="binary-and-hexadecimal"><a class="header" href="#binary-and-hexadecimal">Binary and hexadecimal</a></h1>
 <p>Before we talk about the code, a bit of background knowledge is in order.
 When programming at a low level, understanding of <em><a href="https://en.wikipedia.org/wiki/Binary_number">binary</a></em> and <em><a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a></em> is mandatory.
 Since you may already know about both of these, a summary of the RGBDS-specific information is available at the end of this lesson.</p>
@@ -394,13 +373,13 @@ Since you may already know about both of these, a summary of the RGBDS-specific 
 It’s a different way to represent numbers, in what’s called <em>base 2</em>.
 We’re used to counting in <a href="https://en.wikipedia.org/wiki/Decimal">base 10</a>, so we have 10 digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.
 Here’s how digits work:</p>
-<pre><code>  42 =                       4 * 10   + 2
-     =                       4 * 10^1 + 2 * 10^0
+<pre><code>  42 =                       4 × 10   + 2
+     =                       4 × 10^1 + 2 × 10^0
                                   ↑          ↑
     These tens come from us counting in base 10!
 
-1024 = 1 * 1000 + 0 * 100  + 2 * 10   + 4
-     = 1 * 10^3 + 0 * 10^2 + 2 * 10^1 + 4 * 10^0
+1024 = 1 × 1000 + 0 × 100  + 2 × 10   + 4
+     = 1 × 10^3 + 0 × 10^2 + 2 × 10^1 + 4 × 10^0
        ↑          ↑          ↑          ↑
 And here we can see the digits that make up the number!
 </code></pre>
@@ -416,13 +395,13 @@ We could use other bases instead, such as base 2.
 (Why base 2 specifically will be explained later.)</p>
 <p>Binary is base 2, so there are only two digits, called <em>bits</em>: 0 and 1.
 Thus, we can generalize the principle outlined above, and write these two numbers in a similar way:</p>
-<pre><code>  42 =                                                    1 * 32  + 0 * 16  + 1 * 8   + 0 * 4   + 1 * 2   + 0
-     =                                                    1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 0 * 2^0
+<pre><code>  42 =                                                    1 × 32  + 0 × 16  + 1 × 8   + 0 × 4   + 1 × 2   + 0
+     =                                                    1 × 2^5 + 0 × 2^4 + 1 × 2^3 + 0 × 2^2 + 1 × 2^1 + 0 × 2^0
                                                               ↑         ↑         ↑         ↑         ↑         ↑
                                           And since now we're counting in base 2, we're seeing twos instead of tens!
 
-1024 = 1 * 1024 + 0 * 512 + 0 * 256 + 0 * 128 + 0 * 64  + 0 * 32  + 0 * 16  + 0 * 8   + 0 * 4   + 0 * 2   + 0
-     = 1 * 2^10 + 0 * 2^9 + 0 * 2^8 + 0 * 2^7 + 0 * 2^6 + 0 * 2^5 + 0 * 2^4 + 0 * 2^3 + 0 * 2^2 + 0 * 2^1 + 0 * 2^0
+1024 = 1 × 1024 + 0 × 512 + 0 × 256 + 0 × 128 + 0 × 64  + 0 × 32  + 0 × 16  + 0 × 8   + 0 × 4   + 0 × 2   + 0
+     = 1 × 2^10 + 0 × 2^9 + 0 × 2^8 + 0 × 2^7 + 0 × 2^6 + 0 × 2^5 + 0 × 2^4 + 0 × 2^3 + 0 × 2^2 + 0 × 2^1 + 0 × 2^0
        ↑          ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑
 </code></pre>
 <p>So, by applying the same principle, we can say that in base 2, 42 is written as <code>101010</code>, and 2048 as <code>1000000000</code>.
@@ -439,11 +418,11 @@ Take %10000000000, aka 2048; when in decimal only 4 digits are required, binary 
 And, did you notice that I actually wrote one zero too many?
 Fortunately, hexadecimal is here to save the day! 🦸</p>
 <p>Base 16 works just the same as every other base, but with 16 digits, called <em>nibbles</em>: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, and F.</p>
-<pre><code>  42 =            2 * 16   + 10
-     =            2 * 16^1 + A * 16^0
+<pre><code>  42 =            2 × 16   + 10
+     =            2 × 16^1 + A × 16^0
 
-1024 = 4 * 256  + 0 * 16   + 0
-     = 4 * 16^2 + 2 * 16^1 + 4 * 16^0
+1024 = 4 × 256  + 0 × 16   + 0
+     = 4 × 16^2 + 2 × 16^1 + 4 × 16^0
 </code></pre>
 <p>Like binary, we will use a prefix to denote hexadecimal, namely <code>$</code>.
 So, 42 = $2A, and 1024 = $400.
@@ -483,7 +462,7 @@ And, don’t worry, decimal can still be used 😜</p>
 <li>Using binary or hexadecimal is useful when individual bits matter; otherwise, decimal works just as well.</li>
 <li>For when numbers get a bit too long, RGBASM allows underscores between digits (<code>123_465</code>, <code>%10_1010</code>, <code>$DE_AD_BE_EF</code>, etc.)</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="registers"><a class="header" href="#registers">Registers</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="registers"><a class="header" href="#registers">Registers</a></h1>
 <p>Alright!
 Now that we know what bits are, let’s talk about how they’re used.
 Don’t worry, this is mostly prep work for the next section, where we will—finally!—look at the code 👀</p>
@@ -491,7 +470,7 @@ Don’t worry, this is mostly prep work for the next section, where we will—fi
 So, it’s time we pop the debugger open!
 Right-click the screen, select “Other”, and click “Debugger”.
 Oh, and while we’re at this, we might as well increase the screen size a little.</p>
-<video controls poster="../assets/vid/debugger.poster.jpg">
+<video controls poster="../assets/vid/debugger.poster.png">
 	<source src="../assets/vid/debugger.webm" type="video/webm">
 	<source src="../assets/vid/debugger.mp4" type="video/mp4">
 <pre><code>&lt;img src=&quot;../assets/vid/debugger.gif&quot; alt=&quot;Video demonstration in BGB&quot;&gt;
@@ -504,7 +483,7 @@ For now, let’s focus on this small box near the top-right, the <em>register vi
 <div><p>⚠️</p></div>
 <div>
 <p>The register viewer shows both <em>CPU registers</em> and some <em>hardware registers</em>.
-This lesson will only deal with CPU registers, so that’s why we will be ignoring some of the entries here.</p>
+This lesson will only deal with CPU registers, so that’s why we will be ignoring some of these entries here.</p>
 </div>
 </div>
 <p>What are CPU registers?
@@ -531,14 +510,14 @@ Rather, they will be discussed as the relevant concepts are introduced.</p>
 Thus, they can store integers from 0 to 255 (%1111_1111 aka $FF).</p>
 <p><code>a</code> is the <em>accumulator</em>, and we will see later that it can be used in special ways.</p>
 <p>A special feature is that these registers, besides <code>a</code>, are <em>paired up</em>, and the pairs can be treated as the 16-bit registers <code>bc</code>, <code>de</code>, and <code>hl</code>.
-The pairs are <em>not</em> separate from the individual registers; for example, if <code>d</code> contains 192 ($C0) and <code>e</code> contains 222 ($DE), then <code>de</code> contains 49374 ($C0DE) = 192 * 256 + 222.
+The pairs are <em>not</em> separate from the individual registers; for example, if <code>d</code> contains 192 ($C0) and <code>e</code> contains 222 ($DE), then <code>de</code> contains 49374 ($C0DE) = 192 × 256 + 222.
 The other pairs work similarly.</p>
 <p>Modifying <code>de</code> actually modifies both <code>d</code> and <code>e</code> at the same time, and modifying either individually also affects the pair.
 How do we modify registers?
-Let’s see how, with out first assembly instructions!</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="assembly-basics"><a class="header" href="#assembly-basics">Assembly basics</a></h1>
+Let’s see how, with our first assembly instructions!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="assembly-basics"><a class="header" href="#assembly-basics">Assembly basics</a></h1>
 <p>Alright, now that we know what the tools <em>do</em>, let’s see what language RGBASM speaks.
-I will take a short slice of the beginning of <code>hello-world.asm</code>, so that we agree on line numbers and you can get some syntax highlighting even if your editor doesn’t support it.</p>
+I will take a short slice of the beginning of <code>hello-world.asm</code>, so that we agree on the line numbers, and you can get some syntax highlighting even if your editor doesn’t support it.</p>
 <pre><code class="language-rgbasm linenos">INCLUDE &quot;hardware.inc&quot;
 
 SECTION &quot;Header&quot;, ROM0[$100]
@@ -551,7 +530,7 @@ SECTION &quot;Header&quot;, ROM0[$100]
 SECTION &quot;Code&quot;, ROM0
 
 EntryPoint:
-	; Kill sound
+	; Shut down audio circuitry
 	ld a, 0
 	ld [rNR52], a
 </code></pre>
@@ -578,7 +557,7 @@ For example, in “melt the chocolate and butter in a saucepan”, <em>the whole
 <p>Let’s discuss the most fundamental instruction, <strong><code>ld</code></strong>.
 <code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>“</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>“</a>).
 For example, take line 14’s <code>ld a, 0</code>: it copies (”loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
-If you look further in the file, line 38 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
+If you look further in the file, line 36 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
 <table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Load</td><td><code>ld</code></td><td>Copies values around</td></tr>
 </tbody></table>
@@ -603,7 +582,7 @@ The descriptions there are more succinct, since they’re intended as reminders,
 <p>The curious reader may ask where the value is copied <em>from</em>. The answer is simply that the “immediate“ byte ($00 in this example) is stored in ROM just after the instruction’s opcode byte, and it’s what gets copied to <code>a</code>.
 We will come back to this when we talk about how instructions are encoded later on.</p>
 </div>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="memory"><a class="header" href="#memory">Memory</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="memory"><a class="header" href="#memory">Memory</a></h1>
 <div class="box tip decorated">
 <div><p>🎉</p></div>
 <div>
@@ -611,7 +590,7 @@ We will come back to this when we talk about how instructions are encoded later 
 Since you have the basics, from now on, we’ll be looking at more and more concrete code.</p>
 </div>
 </div>
-<p>If we look at line 34, we see <code>ld a, [de]</code>.
+<p>If we look at line 32, we see <code>ld a, [de]</code>.
 Given what we just learned, this copies a value into register <code>a</code>... but where from?
 What do these brackets mean?
 To answer that, we need to talk about <em>memory</em>.</p>
@@ -652,7 +631,7 @@ Well, now, we can reframe this question as “how many logical addresses are the
 <p>Logical addresses, which again are just numbers, are 16-bit on the Game Boy.
 Therefore, there are 2^16 = 65536 logical addresses, from $0000 to $FFFF.
 How many physical addresses, though?
-Well, here is a memory map <a href="https://gbdev.io/pandocs/#memory-map">courtesy of Pan Docs</a> (though I will simplify it a bit):</p>
+Well, here is a memory map <a href="https://gbdev.io/pandocs/Memory_Map.html">courtesy of Pan Docs</a> (though I will simplify it a bit):</p>
 <table><thead><tr><th>Start</th><th>End</th><th>Name</th><th>Description</th></tr></thead><tbody>
 <tr><td>$0000</td><td>$7FFF</td><td>ROM</td><td>The game ROM, supplied by the cartridge.</td></tr>
 <tr><td>$8000</td><td>$9FFF</td><td>VRAM</td><td>Video RAM, where graphics are stored and arranged.</td></tr>
@@ -665,10 +644,10 @@ Well, here is a memory map <a href="https://gbdev.io/pandocs/#memory-map">courte
 </tbody></table>
 <p>$8000 + $2000 + $2000 + $2000 + $A0 + $80 + $7F + 1 adds up to $E1A0, or 57760 bytes of memory that can be <em>actually</em> accessed.
 The curious reader will naturally ask, “What about the remaining 7776 bytes? What happens when accessing them?”; the answer is: “It depends, it’s complicated; avoid accessing them”.</p>
-<h2 id="what-with-the-brackets"><a class="header" href="#what-with-the-brackets">What with the brackets?</a></h2>
+<h2 id="whats-with-the-brackets"><a class="header" href="#whats-with-the-brackets">What’s with the brackets?</a></h2>
 <p>Right, we came into this because we wanted to know what the brackets in <code>ld a, [de]</code> mean.
 Well, they can basically be read as “at address...”.
-For example, <code>ld a, b</code> can be read as “copy into <code>a</code> to value stored in <code>b</code>“; <code>ld a, [$5414]</code> would be read as “copy into <code>a</code> the value stored at address $5414”, and <code>ld a, [de]</code> would be read as “copy into <code>a</code> the value stored at address <code>de</code>“.
+For example, <code>ld a, b</code> can be read as “copy into <code>a</code> the value stored in <code>b</code>“; <code>ld a, [$5414]</code> would be read as “copy into <code>a</code> the value stored at address $5414”, and <code>ld a, [de]</code> would be read as “copy into <code>a</code> the value stored at address <code>de</code>“.
 Wait, what does that mean?
 Well, if <code>de</code> contains the value $5414, then <code>ld a, [de]</code> will do the same thing as <code>ld a, [$5414]</code>.</p>
 <p>If you’re familiar with C, the brackets are basically how the dereference operator is implemented.</p>
@@ -702,14 +681,14 @@ Good luck writing to that!
 “ROM” is sometimes (mis)used to refer to “persistent memory” chips, such as flash memory, whose write functionality was disabled.
 Most bootleg / “repro” Game Boy cartridges you can find nowadays actually contain flash; this is why you can reflash them using specialized hardware, but not original cartridges.</p>
 </div>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="operations--flags"><a class="header" href="#operations--flags">Operations &amp; flags</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="operations--flags"><a class="header" href="#operations--flags">Operations &amp; flags</a></h1>
 <p>Alright, we know how to pass values around, but just copying numbers is no fun; we want to modify them!</p>
 <p>The GB CPU does not provide every operation under the sun (for example, there is no multiplication instruction), but we can just program those ourselves with what we have.
 Let’s talk about some of the operations that it <em>does</em> have; I will be omitting some not used in the Hello World for now.</p>
 <h2 id="arithmetic"><a class="header" href="#arithmetic">Arithmetic</a></h2>
 <p>The simplest arithmetic instructions the CPU supports are <code>inc</code> and <code>dec</code>, which INCrement and DECrement their operand, respectively.
 (If you aren’t sure, “to increment” means “to add 1”, and “to decrement” means “to subtract 1”.)
-So, the <code>dec bc</code> line 57 simply subtracts 1 from <code>bc</code>.</p>
+So for example, the <code>dec bc</code> at line 35 of <code>hello-world.asm</code> simply subtracts 1 from <code>bc</code>.</p>
 <p>Okay, cool!
 Can we go a bit faster, though?
 Sure we can, with <code>add</code> and <code>sub</code>!
@@ -759,7 +738,7 @@ This is called an <em>underflow</em>: after <strong>subtracting</strong>, we obt
 <li>We can add and subtract numbers.</li>
 <li>The Z flag lets us know if the result was 0.</li>
 <li>However, registers can only store a limited range of integers.</li>
-<li>Going outside of this range is called an <strong>overflow</strong> or <strong>underflow</strong>, for addition and subtraction respectively.</li>
+<li>Going outside this range is called an <strong>overflow</strong> or <strong>underflow</strong>, for addition and subtraction respectively.</li>
 <li>The C flag lets us know if either occurred.</li>
 </ul>
 </div>
@@ -782,16 +761,16 @@ Great!</p>
 <tr><td>Subtract</td><td><code>sub</code></td><td>Subtracts values from <code>a</code></td></tr>
 <tr><td>Compare</td><td><code>cp</code></td><td>Compares values with what’s contained in <code>a</code></td></tr>
 </tbody></table>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="jumps"><a class="header" href="#jumps">Jumps</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="jumps"><a class="header" href="#jumps">Jumps</a></h1>
 <div class="box tip">
 <p>Once this lesson is done, we will be able to understand all of <code>.copyTiles</code>!</p>
 </div>
-<p>So far, all the code we have seen has been linear: it executes top to bottom.
-But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (”if you don’t have butter, grease the pan with oil instead”), and sometimes, we need to perform actions repeatedly (”... repeat while there is batter remaining”).</p>
-<p>Both of these imply requiring the recipe non-lineraly.
-In assembly, this is achieved using “jumps”.</p>
+<p>So far, all the code we have seen was linear: it executes top to bottom.
+But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (”if the crêpes start sticking, grease the pan again”), and sometimes, we need to perform actions repeatedly (”If there is some batter left, repeat from step 5”).</p>
+<p>Both of these imply reading the recipe non-lineraly.
+In assembly, this is achieved using <em>jumps</em>.</p>
 <p>The CPU has a special-purpose register called “PC”, for Program Counter.
-It contains the address of the instruction currently being executed<sup class="footnote-reference"><a href="#pc_updates">1</a></sup>, as if you kept a finger on the recipe item you’re currently doing.
+It contains the address of the instruction currently being executed<sup class="footnote-reference"><a href="#pc_updates">1</a></sup>, like how you’d keep in mind the number of the recipe step you’re currently doing.
 PC increases automatically as the CPU reads instructions, so “by default” they are read sequentially; however, jump instructions allow writing a different value to PC, effectively <em>jumping</em> to another piece of the program.
 Hence the name.</p>
 <p>Okay, so, let’s talk about those jump instructions, shall we?
@@ -803,8 +782,8 @@ There are four of them:</p>
 <tr><td>Return</td><td><code>ret</code></td><td>Return from a subroutine</td></tr>
 </tbody></table>
 <p>We will focus on <code>jp</code> for now.
-<code>jp</code>, such as the one line 8, simply sets PC to its argument, jumping execution there.
-In other words, after executing <code>jp EntryPoint</code> (line 8), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 14 + 1 --> 16).</p>
+<code>jp</code>, such as the one line 6, simply sets PC to its argument, jumping execution there.
+In other words, after executing <code>jp EntryPoint</code> (line 6), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 12 + 1 --> 16).</p>
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
@@ -825,11 +804,11 @@ Let’s examine the loop responsible for copying tiles:</p>
 	inc de
 	dec bc
 	ld a, b
-	or c
+	or a, c
 	jp nz, .copyTiles
 </code></pre>
 <div class="box tip">
-<p>Don’t worry if you don’t quite get all of the following, as we’ll see it live in action in the next lesson.
+<p>Don’t worry if you don’t quite get all the following, as we’ll see it live in action in the next lesson.
 If you’re having trouble, try going to the next lesson, watch the code execute step by step; then, coming back here, it should make more sense.</p>
 </div>
 <p>First, we copy <code>Tiles</code>, the address of the first byte of tile data, into <code>de</code>.
@@ -875,8 +854,9 @@ Let’s watch the magic unfold in slow-motion in the next lesson!</p>
 Notably, this means that when an instruction finishes executing, PC is pointing to the following instruction.
 Still, it’s pretty much “where the CPU is currently reading from”, but it’s better to keep it simple and avoid mentioning instruction encoding for now.</p>
 </div>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="tracing"><a class="header" href="#tracing">Tracing</a></h1>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tracing"><a class="header" href="#tracing">Tracing</a></h1>
+<p>...</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
 <p>A.k.a. “where to go from here”.</p>
 <p>FIXME: This is not properly written yet...</p>
 <ul>
@@ -884,14 +864,14 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
 <li><a href="https://rgbds.gbdev.io/docs/">RGBDS online documentation</a>, this includes <a href="https://rgbds.gbdev.io/docs/gbz80.7">an instruction reference</a>.</li>
 <li><a href="https://gbdev.io/gb-opcodes/optables">A more compact instruction table</a>, more useful if you’re already familiar with the instructions.</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="special-thanks"><a class="header" href="#special-thanks">Special Thanks</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="special-thanks"><a class="header" href="#special-thanks">Special Thanks</a></h1>
 <p>Big thank you to <a href="https://www.pouet.net/user.php?who=21982">Twoflower/Triad</a> for making the Hello World graphic.</p>
 <p>I can’t thank enough Chloé and many others for their continued support.</p>
 <p>Thanks to the GBDev community for being so nice throughout the years.</p>
 <p><strong>You are all great. Thank you so very much.</strong></p>
 <hr />
 <p>Thank you to the <a href="https://www.rust-lang.org">Rust language</a> team for making <a href="https://github.com/rust-lang/mdBook">mdBook</a>, which powers this book (this honestly slick design is the stock one!!)</p>
-<p>Greets to AYCE, Phantasy, TPPDevs/RainbowDevs, lft/kryo :)</p>
+<p>Greets to AYCE, Phantasy, TPPDevs/RainbowDevs, Plutiedev, lft/kryo :)</p>
 <p>Shoutouts to <a href="https://github.com/greenandeievui">GreenAndEievui</a>, <a href="https://github.com/basxto">Baŝto</a>, <a href="https://github.com/bbbbbr">bbbbbr</a>, and <a href="https://github.com/bitnenfer">bitnenfer</a>!</p>
 
                     </main>
@@ -899,9 +879,7 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-
                         
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -909,50 +887,34 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-
-                
-            </nav>
+                            </nav>
 
         </div>
 
         
-
         
-
         
-
-        
-        <script type="text/javascript">
+                <script type="text/javascript">
             window.playground_copyable = true;
         </script>
         
-
         
-
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
         
-
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+                <script type="text/javascript" src="js/linenos.js"></script>
         
-        <script type="text/javascript" src="js/linenos.js"></script>
-        
-
-        
-        
-        <script type="text/javascript">
+                        <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
-
+                
     </body>
 </html>

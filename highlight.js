@@ -323,7 +323,7 @@ _hardware_inc:"_VRAM _VRAM8000 _VRAM8800 _VRAM9000 _SCRN0 _SCRN1 _SRAM _RAM _RAM
 },contains:[_.COMMENT(/;/,/$/),R,A,{className:"number",variants:[{
 match:/\$[0-9-af]+/},{match:/\b[0-9]+(\.[0-9]+)?/,relevance:0},{match:/&[0-7]+/
 },{match:/%[01]+/},{match:/`[0-3]+/}]},{className:"operator",
-match:/\*\*|~|\+|-|\*|\/|%|<<|>>|&\||\^|!=|==|<=|>=|<|>|&&|\|\||!/,relevance:0
+match:/\*\*|~|\+|-|\*|\/|%|<<|>>|&|\||\^|!=|==|<=|>=|<|>|&&|\|\||!/,relevance:0
 },{className:"punctuation",match:/[,[\]:]/,relevance:0},{className:"string",
 begin:/"/,end:/"/,contains:[A],relevance:0},{className:"symbol",variants:[{
 match:/^[ \t]*[a-z_][a-z0-9_#@]*(?=:)/},{

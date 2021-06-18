@@ -10,7 +10,7 @@ SECTION "Header", ROM0[$100]
 SECTION "Code", ROM0
 
 EntryPoint:
-	; Kill sound
+	; Shut down audio circuitry
 	ld a, 0
 	ld [rNR52], a
 
@@ -34,7 +34,7 @@ EntryPoint:
 	inc de
 	dec bc
 	ld a, b
-	or c
+	or a, c
 	jp nz, .copyTiles
 
 	; Copy the tilemap
@@ -47,7 +47,7 @@ EntryPoint:
 	inc de
 	dec bc
 	ld a, b
-	or c
+	or a, c
 	jp nz, .copyTilemap
 
 	; Turn the LCD on
