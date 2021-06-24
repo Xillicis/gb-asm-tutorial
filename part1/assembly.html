@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item expanded "><a href="../part1/assembly.html" class="active"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="../help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item expanded "><a href="../part1/assembly.html" class="active"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><a href="../part1/tiles.html"><strong aria-hidden="true">11.</strong> Tiles</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../next.html">Where to go next</a></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -157,12 +157,9 @@ I will take a short slice of the beginning of <code>hello-world.asm</code>, so t
 
 SECTION &quot;Header&quot;, ROM0[$100]
 
-	di
 	jp EntryPoint
 
 	ds $150 - @, 0 ; Make room for the header
-
-SECTION &quot;Code&quot;, ROM0
 
 EntryPoint:
 	; Shut down audio circuitry
@@ -172,17 +169,17 @@ EntryPoint:
 <p>Let’s analyze it.
 Note that I will be ignoring a <em>lot</em> of RGBASM’s functionality; if you’re curious to know more, you should wait until parts II and III, or <a href="https://rgbds.gbdev.io/docs">read the docs</a>.</p>
 <h2 id="comments"><a class="header" href="#comments">Comments</a></h2>
-<p>We’ll start with line 13, which should appear gray above.
+<p>We’ll start with line 10, which should appear gray above.
 Semicolons <code>;</code> denote <em>comments</em>.
 Everything from a semicolon to the end of the line is <em>ignored</em> by RGBASM.
-As you can see on line 8, comments need not be on an otherwise empty line.</p>
+As you can see on line 7, comments need not be on an otherwise empty line.</p>
 <p>Comments are a staple of every good programming language; they are useful to give context as to what code is doing.
 They’re the difference between “Pre-heat the oven at 180 °C” and “Pre-heat the oven at 180 °C, any higher and the cake would burn”, basically.
 In any language, good comments are very useful; in assembly, they play an even more important role, as many common semantic facilities are not available.</p>
 <h2 id="instructions"><a class="header" href="#instructions">Instructions</a></h2>
 <p>Assembly is a very line-based language.
 Each line can contain a <em>directive</em>, which instructs RGBASM to do something, or an <em>instruction</em><sup class="footnote-reference"><a href="#instr_directive">1</a></sup>, which is copied directly into the ROM.
-We will talk about directives later, for now let’s focus on instructions: for example, in the snippet above, we will ignore lines 1 (<code>INCLUDE</code>), 8 (<code>ds</code>), and 3 (<code>SECTION</code>).</p>
+We will talk about directives later, for now let’s focus on instructions: for example, in the snippet above, we will ignore lines 1 (<code>INCLUDE</code>), 7 (<code>ds</code>), and 3 (<code>SECTION</code>).</p>
 <p>To continue the cake-baking analogy even further, instructions are like steps in a recipe.
 The console’s processor (<abbr title="Central Processing Unit">CPU</abbr>) executes instructions one at a time, and that... eventually does something!
 Like baking a cake, drawing a “Hello World” image, or displaying a Game Boy programming tutorial!
@@ -191,8 +188,8 @@ Like baking a cake, drawing a “Hello World” image, or displaying a Game Boy 
 For example, in “melt the chocolate and butter in a saucepan”, <em>the whole sentence</em> would be the instruction, <em>the verb</em> “melt” would be the mnemonic, and “chocolate”, “butter”, and “saucepan” the operands, i.e. some kind of parameters to the operation.</p>
 <p>Let’s discuss the most fundamental instruction, <strong><code>ld</code></strong>.
 <code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>“</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>“</a>).
-For example, take line 14’s <code>ld a, 0</code>: it copies (”loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
-If you look further in the file, line 36 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
+For example, take line 11’s <code>ld a, 0</code>: it copies (”loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
+If you look further in the file, line 33 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
 <table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Load</td><td><code>ld</code></td><td>Copies values around</td></tr>
 </tbody></table>

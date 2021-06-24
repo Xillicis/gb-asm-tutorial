@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item expanded "><a href="../part1/memory.html" class="active"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="../help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item expanded "><a href="../part1/memory.html" class="active"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><a href="../part1/tiles.html"><strong aria-hidden="true">11.</strong> Tiles</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../next.html">Where to go next</a></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -158,7 +158,7 @@
 Since you have the basics, from now on, we’ll be looking at more and more concrete code.</p>
 </div>
 </div>
-<p>If we look at line 32, we see <code>ld a, [de]</code>.
+<p>If we look at line 29, we see <code>ld a, [de]</code>.
 Given what we just learned, this copies a value into register <code>a</code>... but where from?
 What do these brackets mean?
 To answer that, we need to talk about <em>memory</em>.</p>
@@ -212,13 +212,28 @@ Well, here is a memory map <a href="https://gbdev.io/pandocs/Memory_Map.html">co
 </tbody></table>
 <p>$8000 + $2000 + $2000 + $2000 + $A0 + $80 + $7F + 1 adds up to $E1A0, or 57760 bytes of memory that can be <em>actually</em> accessed.
 The curious reader will naturally ask, “What about the remaining 7776 bytes? What happens when accessing them?”; the answer is: “It depends, it’s complicated; avoid accessing them”.</p>
+<h2 id="labels"><a class="header" href="#labels">Labels</a></h2>
+<p>Okay, memory addresses are nice, but you can’t possibly expect me to keep track of all these addresses manually, right??
+Well, fear not, for we have labels!</p>
+<p>Labels are <a href="https://rgbds.gbdev.io/docs/v0.5.1/rgbasm.5#SYMBOLS">symbols</a> which basically allow attaching a name to a byte of memory.
+A label is declared like at line 9 (<code>EntryPoint:</code>): at the beginning of the line, write the label’s name, followed by a colon, and it will refer to the byte right after itself.
+So, for example, <code>EntryPoint</code> refers to the <code>ld a, 0</code> right below it (more accurately, the first byte of that instruction, but we will get there when we get there).</p>
+<div class="box tip">
+<p>If you peek inside <code>hardware.inc</code>, you will see that for example <code>rNR52</code> is not defined as a label.
+That’s because they are <em>constants</em>, which we will touch on later; since they can be used mostly like labels, we will conflate the two for now.</p>
+</div>
+<p>Writing out a label’s name is equivalent to writing the address of the byte it’s referencing (with a few exceptions we will see in Part Ⅱ).
+For example, consider the <code>ld de, Tiles</code> at line 25.
+<code>Tiles</code> (line 64) is referring to the first byte of the tile data; if we assume that the tile data ends up being stored starting at $0193, then <code>ld de, Tiles</code> is equivalent to <code>ld de, $0193</code>!</p>
 <h2 id="whats-with-the-brackets"><a class="header" href="#whats-with-the-brackets">What’s with the brackets?</a></h2>
 <p>Right, we came into this because we wanted to know what the brackets in <code>ld a, [de]</code> mean.
 Well, they can basically be read as “at address...”.
 For example, <code>ld a, b</code> can be read as “copy into <code>a</code> the value stored in <code>b</code>“; <code>ld a, [$5414]</code> would be read as “copy into <code>a</code> the value stored at address $5414”, and <code>ld a, [de]</code> would be read as “copy into <code>a</code> the value stored at address <code>de</code>“.
 Wait, what does that mean?
 Well, if <code>de</code> contains the value $5414, then <code>ld a, [de]</code> will do the same thing as <code>ld a, [$5414]</code>.</p>
-<p>If you’re familiar with C, the brackets are basically how the dereference operator is implemented.</p>
+<div class="box tip">
+<p>If you’re familiar with C, these brackets are basically how the dereference operator is implemented.</p>
+</div>
 <h3 id="hli"><a class="header" href="#hli"><code>hli</code></a></h3>
 <p>An astute reader will have noticed the <code>ld [hli], a</code> just below the <code>ld a, [de]</code> we have just studied.
 <code>[de]</code> makes sense because it’s one of the register pairs we saw a couple lessons ago, but <code>[hli]</code>?

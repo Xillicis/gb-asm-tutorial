@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><li class="part-title">Part I — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item expanded "><a href="../part1/jumps.html" class="active"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item affix "><li class="part-title">Part II — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part III — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="../help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item expanded "><a href="../part1/jumps.html" class="active"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><a href="../part1/tiles.html"><strong aria-hidden="true">11.</strong> Tiles</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../next.html">Where to go next</a></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -152,7 +152,7 @@
                     <main>
                         <h1 id="jumps"><a class="header" href="#jumps">Jumps</a></h1>
 <div class="box tip">
-<p>Once this lesson is done, we will be able to understand all of <code>.copyTiles</code>!</p>
+<p>Once this lesson is done, we will be able to understand all of <code>CopyTiles</code>!</p>
 </div>
 <p>So far, all the code we have seen was linear: it executes top to bottom.
 But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (”if the crêpes start sticking, grease the pan again”), and sometimes, we need to perform actions repeatedly (”If there is some batter left, repeat from step 5”).</p>
@@ -171,8 +171,8 @@ There are four of them:</p>
 <tr><td>Return</td><td><code>ret</code></td><td>Return from a subroutine</td></tr>
 </tbody></table>
 <p>We will focus on <code>jp</code> for now.
-<code>jp</code>, such as the one line 6, simply sets PC to its argument, jumping execution there.
-In other words, after executing <code>jp EntryPoint</code> (line 6), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 12 + 1 --> 16).</p>
+<code>jp</code>, such as the one line 5, simply sets PC to its argument, jumping execution there.
+In other words, after executing <code>jp EntryPoint</code> (line 5), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 9 + 1 --> 16).</p>
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
@@ -186,15 +186,15 @@ Let’s examine the loop responsible for copying tiles:</p>
 <pre><code class="language-rgbasm linenos">	; Copy the tile data
 	ld de, Tiles
 	ld hl, $9000
-	ld bc, Tiles.end - Tiles
-.copyTiles
+	ld bc, TilesEnd - Tiles
+CopyTiles:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec bc
 	ld a, b
 	or a, c
-	jp nz, .copyTiles
+	jp nz, CopyTiles
 </code></pre>
 <div class="box tip">
 <p>Don’t worry if you don’t quite get all the following, as we’ll see it live in action in the next lesson.
@@ -221,7 +221,7 @@ Since <code>bc</code> contains the amount of bytes that still need to be copied,
 <p><code>dec</code> usually updates flags, but unfortunately <code>dec bc</code> doesn’t, so we must check if <code>bc</code> reached 0 manually.</p>
 </div>
 </div>
-<p><code>ld a, b</code> and <code>or c</code> “bitwise OR” <code>b</code> and <code>c</code> together; it’s sufficient to know for now that it leaves 0 in <code>a</code> if and only if <code>bc</code> == 0.
+<p><code>ld a, b</code> and <code>or c</code> “bitwise OR” <code>b</code> and <code>c</code> together; it’s enough to know for now that it leaves 0 in <code>a</code> if and only if <code>bc</code> == 0.
 And <code>or</code> updates the Z flag!
 So, after line 11, the Z flag is set if and only if <code>bc</code> == 0, that is, if we should exit the loop.</p>
 <p>And this is where conditional jumps come into the picture!
@@ -233,7 +233,7 @@ See, it’s possible to <strong>conditionally</strong> “take” a jump dependi
 <tr><td>Carry</td><td><code>c</code></td><td>C is set (last operation overflowed)</td></tr>
 <tr><td>No carry</td><td><code>nc</code></td><td>C is not set (last operation did not overflow)</td></tr>
 </tbody></table>
-<p>Thus, <code>jp nz, .copyTiles</code> can be read as “if the Z flag is not set, then jump to <code>.copyTiles</code>“.
+<p>Thus, <code>jp nz, CopyTiles</code> can be read as “if the Z flag is not set, then jump to <code>CopyTiles</code>“.
 Since we’re jumping <em>backwards</em>, we will repeat the instructions again: we have just created a <strong>loop</strong>!</p>
 <p>Okay, we’ve been talking about the code a lot, and we have seen it run, but we haven’t really seen <em>how</em> it runs.
 Let’s watch the magic unfold in slow-motion in the next lesson!</p>

@@ -2,12 +2,9 @@ INCLUDE "hardware.inc"
 
 SECTION "Header", ROM0[$100]
 
-	di
 	jp EntryPoint
 
 	ds $150 - @, 0 ; Make room for the header
-
-SECTION "Code", ROM0
 
 EntryPoint:
 	; Shut down audio circuitry
@@ -15,10 +12,10 @@ EntryPoint:
 	ld [rNR52], a
 
 	; Do not turn the LCD off outside of VBlank
-.waitVBlank
+WaitVBlank:
 	ld a, [rLY]
 	cp 144
-	jp c, .waitVBlank
+	jp c, WaitVBlank
 
 	; Turn the LCD off
 	ld a, 0
@@ -27,28 +24,28 @@ EntryPoint:
 	; Copy the tile data
 	ld de, Tiles
 	ld hl, $9000
-	ld bc, Tiles.end - Tiles
-.copyTiles
+	ld bc, TilesEnd - Tiles
+CopyTiles:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec bc
 	ld a, b
 	or a, c
-	jp nz, .copyTiles
+	jp nz, CopyTiles
 
 	; Copy the tilemap
 	ld de, Tilemap
 	ld hl, $9800
-	ld bc, Tilemap.end - Tilemap
-.copyTilemap
+	ld bc, TilemapEnd - Tilemap
+CopyTilemap:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec bc
 	ld a, b
 	or a, c
-	jp nz, .copyTilemap
+	jp nz, CopyTilemap
 
 	; Turn the LCD on
 	ld a, LCDCF_ON | LCDCF_BGON
@@ -58,8 +55,8 @@ EntryPoint:
 	ld a, %11100100
 	ld [rBGP], a
 
-.done
-	jp .done
+Done:
+	jp Done
 
 
 SECTION "Tile data", ROM0
@@ -135,7 +132,7 @@ Tiles:
 	db $54,$ff, $aa,$ff, $54,$ff, $aa,$ff, $54,$ff, $aa,$ff, $54,$ff, $00,$ff
 	db $15,$ff, $2a,$ff, $15,$ff, $0a,$ff, $15,$ff, $0a,$ff, $01,$ff, $00,$ff
 	db $01,$ff, $80,$ff, $01,$ff, $80,$ff, $01,$ff, $80,$ff, $01,$ff, $00,$ff
-.end
+TilesEnd:
 
 SECTION "Tilemap", ROM0
 
@@ -158,4 +155,4 @@ Tilemap:
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00,  0,0,0,0,0,0,0,0,0,0,0,0
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00,  0,0,0,0,0,0,0,0,0,0,0,0
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00,  0,0,0,0,0,0,0,0,0,0,0,0
-.end
+TilemapEnd:
