@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><a href="part1/tiles.html"><strong aria-hidden="true">11.</strong> Tiles</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="next.html">Where to go next</a></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Graphics</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="part1/tiles.html"><strong aria-hidden="true">11.1.</strong> Tiles</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.2.</strong> Palette</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.3.</strong> Tilemap</div></li></ol></li><li class="chapter-item "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="next.html">Where to go next</a></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -833,7 +833,7 @@ If you’re having trouble, try going to the next lesson, watch the code execute
 </div>
 <p>First, we copy <code>Tiles</code>, the address of the first byte of tile data, into <code>de</code>.
 Then, we set <code>hl</code> to $9000, which is the address where we will start copying the tile data to.
-<code>ld bc, Tiles.end - Tiles</code> sets <code>bc</code> to the length of the tile data: <code>Tiles.end</code> is the address of the first byte <em>after</em> the tile data, so subtracting <code>Tiles</code> to that yields the length.</p>
+<code>ld bc, TilesEnd - Tiles</code> sets <code>bc</code> to the length of the tile data: <code>TilesEnd</code> is the address of the first byte <em>after</em> the tile data, so subtracting <code>Tiles</code> to that yields the length.</p>
 <p>So, basically:</p>
 <ul>
 <li><code>de</code> contains the address where data will be copied from;</li>
@@ -984,8 +984,58 @@ Don’t worry, from here on, lessons will go with a lot more images—you’ve m
 That’s because it’s where the <a href="https://gbdev.io/pandocs/Power_Up_Sequence">boot ROM</a> hands off control to our game once it’s done.</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tiles"><a class="header" href="#tiles">Tiles</a></h1>
+<p>Well, copying this data blindly is fine and dandy, but how exactly are those graphics?</p>
+<figure>
+  <img src="part1/../assets/img/ah_yes_pixels.png" alt="Screenshot of some tile definitions in the code">
+  <figcaption><q>Ah, yes, pixels.</q></figcaption>
+</figure>
+<p>Let’s see about that!</p>
+<h2 id="helpful-hand"><a class="header" href="#helpful-hand">Helpful hand</a></h2>
+<p>Now, figuring out the format with an explanation alone is going to be very confusing; but fortunately, BGB got us covered thanks to its <em>VRAM viewer</em>.
+You can open it either by selecting “Window” then “VRAM viewer”, or pressing F5 when the debugger is in focus.
+It is also in “Other” in the screen’s right-click menu.</p>
+<p><img src="part1/../assets/img/vram_viewer.png" alt="Screenshot of the VRAM viewer’s “Tiles” tab" /></p>
+<p>By default, it should open on the “Tiles” tab like in the image, but if not, please select that.
+We will come to the other tabs in due time.
+This one shows the tiles present in the Game Boy’s video memory (or “<abbr title="Video RAM">VRAM</abbr>“).</p>
+<p>(Don’t mind the “Nintendo” in the top-left; we did not put it there ourselves, and we will see why it’s there later.)</p>
+<h2 id="short-primer"><a class="header" href="#short-primer">Short primer</a></h2>
+<p>You may have heard of tiles before, especially as they were really popular in 8-bit and 16-bit systems.
+That’s no coincidence: tiles are very useful.
+Instead of storing every on-screen pixel (144 × 160 pixels × 2 bits/pixel = 46080 bits = 5760 bytes, compared to the console’s 8192 bytes of VRAM), pixels are grouped into tiles, and then tiles are assembled in various ways to produce the final image.</p>
+<p>In particular, tiles can be reused very easily and at basically no cost, saving a lot of memory!
+In addition, manipulating whole tiles at once is much cheaper than manipulating the individual pixels, so this spares processing time as well.</p>
+<p>The concept of a “tile” is very general, but on the Game Boy, tiles are <em>always</em> 8 by 8 pixels.
+Often, hardware tiles are grouped to manipulate them as larger tiles (often 16×16); to avoid the confusion, those are referred to as <strong>meta-tiles</strong>.</p>
+<h3 id="bpp"><a class="header" href="#bpp">“bpp”?</a></h3>
+<p>You may be wondering where that “2 bits/pixel” figure earlier came from...
+This is something called “bit depth”.</p>
+<p>See, colors are <em>not</em> stored in the tiles themselves!
+Instead, it works like a coloring book: the tile itself contains 8 by 8 <em>indices</em>, not colors; you give the hardware a tile and a set of colors—a <strong>palette</strong>—and it colorizes them!
+(This is also why color swaps were very common back then: you could create enemy variations by storing tiny palettes instead of large different graphics.)</p>
+<p>Anyway, as it is, Game Boy palettes are 4 colors large.<sup class="footnote-reference"><a href="#pal_size">1</a></sup>
+This means that the indices into those palettes, stored in the tiles, can be represented in only <em>two bits</em>!
+This is called “2 bits per pixel”, noted “2bpp”.</p>
+<p>With that in mind, we are ready to explain how these bytes turn into pixels!</p>
+<h2 id="encoding"><a class="header" href="#encoding">Encoding</a></h2>
+<p>As I explained, each pixel takes up 2 bits.
+Since there are 8 bits in a byte, you might expect each byte to contain 4 pixels... and you’re neither entirely right, nor entirely wrong.
+See, each row of 8 pixels is stored in 2 bytes, but neither of these bytes contains the info for 4 pixels.
+(Think of it like a 10 € banknote torn in half: neither half is worth anything, but the full bill is worth, well, 10 €.)</p>
+<p>For each pixel, the least significant bit of its index is stored in the first byte, and the most significant bit is stored in the second byte.
+Since each byte is a collection of one of the bits for each pixel, it’s called a <strong>bitplane</strong>.</p>
+<p>The leftmost pixel is stored in the leftmost bit of both bytes, the pixel to its right in the second leftmost bit, and so on.
+The first pair of bytes stores the topmost row, the second byte the row below that, and so on.</p>
 <p>Here is a more visual demonstration; note that it’s for the SNES, but its 2BPP format is the same as the Game Boy’s.</p>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/57ibhDU2SAI?start=149" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>This encoding may seem a little weird at first, and it can be; it’s made to be more convenient for the hardware to decode, keeping the circuitry simple and low-power.
+It even makes a few cool tricks possible, as we will see (much) later!</p>
+<p>You can read up more about the encoding <a href="part1/">in the Pan Docs</a> and <a href="https://www.huderlem.com/demos/gameboy2bpp.html">ShantyTown’s site</a>.</p>
+<p>In the next lesson, we shall see how colors are applied!</p>
+<hr />
+<div class="footnote-definition" id="pal_size"><sup class="footnote-definition-label">1</sup>
+<p>Other consoles can have varying bit depths; for example, the SNES has 2bpp, 4bpp, and 8bpp depending on the graphics mode and a few other parameters.</p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="where-to-go-next"><a class="header" href="#where-to-go-next">Where to go next</a></h1>
 <p>Oh.
 Well, you’ve reached the end of the tutorial...
