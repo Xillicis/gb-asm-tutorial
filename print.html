@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Graphics</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="part1/tiles.html"><strong aria-hidden="true">11.1.</strong> Tiles</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.2.</strong> Palette</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.3.</strong> Tilemap</div></li></ol></li><li class="chapter-item "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="next.html">Where to go next</a></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Graphics</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="part1/tiles.html"><strong aria-hidden="true">11.1.</strong> Tiles</a></li><li class="chapter-item "><a href="part1/palettes.html"><strong aria-hidden="true">11.2.</strong> Palettes</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.3.</strong> Tilemap</div></li></ol></li><li class="chapter-item "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="next.html">Where to go next</a></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -1035,6 +1035,88 @@ It even makes a few cool tricks possible, as we will see (much) later!</p>
 <hr />
 <div class="footnote-definition" id="pal_size"><sup class="footnote-definition-label">1</sup>
 <p>Other consoles can have varying bit depths; for example, the SNES has 2bpp, 4bpp, and 8bpp depending on the graphics mode and a few other parameters.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="palettes"><a class="header" href="#palettes">Palettes</a></h1>
+<p>In the previous lesson, I briefly mentioned that colors are applied to tiles via <em>palettes</em>, but we haven’t talked much about those yet.</p>
+<p>The black &amp; white Game Boy has three palettes, one for the background called <a href="https://gbdev.io/pandocs/Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a> (”BackGround Palette”), and two for the objects called <a href="https://gbdev.io/pandocs/Palettes.html#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><code>OBP0</code></a> and <a href="https://gbdev.io/pandocs/Palettes.html#ff48---obp1-object-palette-1-data-rw---non-cgb-mode-only"><code>OBP1</code></a> (”OBject Palette 0/1”).
+If you are wondering what “objects” are, you will have to wait until Part Ⅱ to find out; for now, let’s focus on the background.</p>
+<div class="box tip decorated">
+<div><p>🌈</p></div>
+<div>
+<p>The Game Boy Color introduced, obviously, colors, and this was mainly done by reworking the way palettes are handled.
+We will not talk about Game Boy Color features in Part Ⅰ for the sake of simplicity, but we will do so in later parts.</p>
+</div>
+</div>
+<p>Please select the “Palettes” tab of BGB’s VRAM viewer.</p>
+<p><img src="part1/../assets/img/pal_viewer.png" alt="Screenshot of the VRAM viewer’s Palette tab" /></p>
+<div class="box tip decorated">
+<div><p>🥴</p></div>
+<div>
+<p>The VRAM viewer’s layout may seem weird.
+As mentioned in the previous tip box, the Game Boy Color changed the way palettes work, and the Super Game Boy throws another wrench into the mix.</p>
+<p>The VRAM viewer uses the same layout for monochrome and Color, leading to this admittedly strange layout.</p>
+</div>
+</div>
+<p>We will be taking a look at the “BGP” line.
+As I explained before, tiles store “color indices” for each pixel, which are used to index into the palette.
+Color number 0<sup class="footnote-reference"><a href="#numbering_zero">1</a></sup> is the leftmost in that line, and number 3 is the rightmost.</p>
+<p>So, in our case, color number 0 is “white”, color number 1 is “light gray”, number 2 is “dark gray”, and number 3 “black”.
+I put air quotes because “black” isn’t true black, and “white” isn’t true white.
+Further, note that the original Game Boy had shades of green, but the later Game Boy Pocket’s screen produced shades of gray instead.
+And, even better, the Game Boy Color will automatically colorize games that lack Game Boy Color support!</p>
+<p><img src="part1/../assets/img/hello_world_autocolor.png" alt="Screenshot of our Hello World, automatically colorized by the Game Boy Color" /></p>
+<p>All this to say, one shouldn’t expect specific colors out of a Game Boy game<sup class="footnote-reference"><a href="#console_detection">2</a></sup>, just four more or less bright colors.</p>
+<h2 id="getting-our-hands-dirty"><a class="header" href="#getting-our-hands-dirty">Getting our hands dirty</a></h2>
+<p>Well, so far in this tutorial, besides running the Hello World, we have been pretty passive, watching it unfold.
+What do you say we start prodding the ROM a bit?</p>
+<p>In BGB’s debugger, select the “Window” menu, and open the “IO map” (or just press <kbd>F10</kbd> within the debugger).</p>
+<p><img src="part1/../assets/img/io_map.png" alt="Screenshot of the IO map" /></p>
+<p>While the VRAM viewer offers a visual representation of the palette, the IO map shows the nitty-gritty: how it’s encoded.
+The IO map also lets us modify BGP easily; but to do so, we need to understand <em>how</em> values we write are turned into colors.</p>
+<h3 id="encoding-1"><a class="header" href="#encoding-1">Encoding</a></h3>
+<p>Fortunately, the encoding is very simple.
+I will explain it, and at the same time, give an example with the palette we have at hand, $E4.</p>
+<p>Take the byte, break its 8 bits into 4 groups of 2.</p>
+<pre><code>[BGP] = $E4
+$E4 = %11100100 (refresh your memory in the &quot;Binary and hexadecimal&quot; lesson if needed!)
+That gets broken down into %11, %10, %01, %00
+</code></pre>
+<p>Color number 0 is the rightmost “group”, color number 3 is the leftmost one.
+Simple!
+And this matches what the VRAM viewer is showing us: color number 0, the rightmost, is the brightest (%00), up to color number 3, the leftmost and the darkest (%11).</p>
+<h3 id="lights-out"><a class="header" href="#lights-out">Lights out</a></h3>
+<p>For fun, let’s make the screen completely black.
+We can easily do this by setting all colors in the palette to black (%11).
+This would be <code>%11 %11 %11 %11 = $FF</code>.</p>
+<p>In the IO map, click the text box left of “BGP”, erase the “E4”, type “FF”, and hit Enter.
+BGP immediately updates, turning the screen black!</p>
+<figure>
+	<img src="part1/../assets/img/pal_viewer_black.png" alt="Screenshot of the palette viewer with the BGP line entirely black">
+	<figcaption>Observe how the BGP line is entirely black now. Also, I could have shown a screenshot of the black screen, but that would have been silly.</figcaption>
+</figure>
+<p>What if we wanted to take the original palette, but invert it?
+%11 would become %00, %01 would become %10, %10 would become %01, and %11 would become %00.
+We would get thus:</p>
+<pre><code>%11_10_01_00
+ ↓  ↓  ↓  ↓
+%00_01_10_11
+</code></pre>
+<p>(I’m not giving the value in hexadecimal, use this as an opportunity to exercise your bin-to-hex conversions!)</p>
+<figure>
+	<img src="part1/../assets/img/hello_world_inv.png" alt="Screenshot of the color-inverted Hello World">
+	<figcaption>If you got it right, it should look like this!</figcaption>
+</figure>
+<p>If you go to the Tile Viewer and uncheck the “show paletted” checkbox, you will notice that the tile data stays exactly the same regardless of how the palette is modified!
+This is an advantage of using palettes: fading the screen in and out is very cheap, just modifying a single byte, instead of having to update every single on-screen pixel.</p>
+<p>Got all that?
+Then let’s take a look at the last missing puzzle piece in the Hello World’s rendering process, the <strong>tilemap</strong>!</p>
+<hr />
+<div class="footnote-definition" id="numbering_zero"><sup class="footnote-definition-label">1</sup>
+<p>Numbering often starts at 0 when working with computers.
+We will understand why later, but for now, please bear with it!</p>
+</div>
+<div class="footnote-definition" id="console_detection"><sup class="footnote-definition-label">2</sup>
+<p>Well, it is possible to detect these different models and account for them, but this would require taking plenty of corner cases into consideration, so it’s probably not worth the effort.</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="where-to-go-next"><a class="header" href="#where-to-go-next">Where to go next</a></h1>
 <p>Oh.
