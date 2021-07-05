@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Graphics</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="part1/tiles.html"><strong aria-hidden="true">11.1.</strong> Tiles</a></li><li class="chapter-item "><a href="part1/palettes.html"><strong aria-hidden="true">11.2.</strong> Palettes</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.3.</strong> Tilemap</div></li></ol></li><li class="chapter-item "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="next.html">Where to go next</a></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Home</a></li><li class="chapter-item affix "><a href="roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Graphics</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="part1/tiles.html"><strong aria-hidden="true">11.1.</strong> Tiles</a></li><li class="chapter-item "><a href="part1/palettes.html"><strong aria-hidden="true">11.2.</strong> Palettes</a></li><li class="chapter-item "><a href="part1/tilemap.html"><strong aria-hidden="true">11.3.</strong> Tilemap</a></li></ol></li><li class="chapter-item "><a href="part1/wrapup.html"><strong aria-hidden="true">12.</strong> Wrapping up</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> To be written...</div></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">14.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="next.html">Where to go next</a></li><li class="chapter-item affix "><a href="resources.html">Resources</a></li><li class="chapter-item affix "><a href="thanks.html">Thanks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -748,7 +748,7 @@ Remember, <code>a</code> is an 8-bit register, <em>it can only store eight bits 
 And if we were to write 262 in binary, we would get %100000110, which requires at least 9 bits...
 So what happens?
 Simply, that ninth bit is <em>lost</em>, and the value that we end up with is %00000110 = 6.
-This is called an <em>overflow</em>: after <strong>adding</strong>, we obtain a value <strong>smaller</strong> than what we started with.</p>
+This is called an <em>overflow</em>: after <strong>adding</strong>, we get a value <strong>smaller</strong> than what we started with.</p>
 <p>We can also do the opposite with <code>sub</code>, and—for example—subtract 42 from 6; as we know, for all <code>X</code> and <code>Y</code>, <code>X + Y - Y = X</code>, and we just saw that 220 + 42 = 6 (this is called <em>modulo 256 arithmetic</em>, by the way); so, 6 - 42 = (220 + 42) - 42 = 220.
 This is called an <em>underflow</em>: after <strong>subtracting</strong>, we get a value <strong>greater</strong> than what we started with.</p>
 <p>When an operation is performed, it sets the carry flag if an overflow or underflow occurred, and clears it otherwise.
@@ -807,7 +807,7 @@ In other words, after executing <code>jp EntryPoint</code> (line 5), the next in
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
-<p>You may be wondering what that specific <code>jp</code>‘s point is.
+<p>You may be wondering what is the point of that specific <code>jp</code>.
 Don’t worry, we will see later why it’s required.</p>
 </div>
 </div>
@@ -1106,7 +1106,7 @@ We would get thus:</p>
 	<img src="part1/../assets/img/hello_world_inv.png" alt="Screenshot of the color-inverted Hello World">
 	<figcaption>If you got it right, it should look like this!</figcaption>
 </figure>
-<p>If you go to the Tile Viewer and uncheck the “show paletted” checkbox, you will notice that the tile data stays exactly the same regardless of how the palette is modified!
+<p>If you go to the Tile Viewer and uncheck the “show paletted” checkbox, you will notice that the tile data stays the same regardless of how the palette is modified!
 This is an advantage of using palettes: fading the screen in and out is very cheap, just modifying a single byte, instead of having to update every single on-screen pixel.</p>
 <p>Got all that?
 Then let’s take a look at the last missing puzzle piece in the Hello World’s rendering process, the <strong>tilemap</strong>!</p>
@@ -1118,6 +1118,62 @@ We will understand why later, but for now, please bear with it!</p>
 <div class="footnote-definition" id="console_detection"><sup class="footnote-definition-label">2</sup>
 <p>Well, it is possible to detect these different models and account for them, but this would require taking plenty of corner cases into consideration, so it’s probably not worth the effort.</p>
 </div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tilemap"><a class="header" href="#tilemap">Tilemap</a></h1>
+<div class="box tip decorated">
+<div><p>🧐</p></div>
+<div>
+<p>Some spell them “tile map”, some “tilemap”.
+I will be using the latter by preference, but I also stay consistent with it in the code (<code>Tilemap</code> and not <code>TileMap</code>), as well as later when we will talk about attribute maps (”attrmap” and <code>Attrmap</code> instead of <code>AttrMap</code>).</p>
+</div>
+</div>
+<p>We are <em>almost</em> there.
+We have seen how graphics on the Game Boy are composed of 8×8 “tiles”, and we have seen how color is added into the mix.</p>
+<p>But we have not seen yet how those tiles are arranged into a final picture!</p>
+<p>Tiles are basically a grid of pixels; well, the tilemaps are basically a grid of tiles!
+To allow for cheap reuse, tiles aren’t stored in the tilemap directly; instead, tiles are referred to by an <em>ID</em>, which you can see in BGB’s VRAM viewer.</p>
+<figure>
+  <img src="part1/../assets/img/tile_id.png" alt="Screenshot highlighting where a tile's ID can be seen">
+  <figcaption>
+    The ID is displayed in hexadecimal without a prefix, so this is tile number $10, aka 16.
+    As may have noticed, the tiles are displayed in rows of 16, so it's easier to locate them.
+    Nifty!
+  </figcaption>
+</figure>
+<p>Now, of course, tile IDs are numbers, like everything that computers deal with.
+IDs are stored in bytes, so there are 256 possible tile IDs.</p>
+<p>Now, please turn your attention to the “BG map” tab of BGB’s VRAM viewer, pictured below.</p>
+<p><img src="part1/../assets/img/tilemap_viewer.png" alt="Screenshot of the tilemap viewer" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wrapping-up"><a class="header" href="#wrapping-up">Wrapping up</a></h1>
+<p>Congrats!
+You have made it through the first part of this tutorial.
+By this point, you have a basic enough understanding of the console that you know how to display a picture.
+And hey, that doesn’t sound like much, but consider everything you have seen so far—there <em>is</em> a lot that goes into it!</p>
+<div class="box tip decorated">
+<div><p>🥳</p></div>
+<div>
+<p>Honestly, congrats on coming this far—many people have given up earlier than this.
+So you can give yourself a pat on the back, you honestly deserve it!
+<strong>Now may also be a good time to take a break</strong> if you are reading all this in a single trait.
+I encourage you to give it a little time to sink in, and maybe go back to the lessons you struggled on the most.
+Maybe a second read can help.</p>
+</div>
+</div>
+<hr />
+<p>And yes, you could simply have let a library handle all that.
+However, the details always leak through eventually, so knowing about them is helpful, if only for debugging.</p>
+<p>Plus, understanding what’s really going on under the hood makes you a better programmer, even if you don’t end up using ASM in the long run.
+Amusingly, even modern systems work similarly to older ones in unexpected places, so some things you just learned will carry over!
+Trust me, everything you have learned and will learn is worth it! ✊</p>
+<p>That said, right now, you may have a lot of questions.</p>
+<ul>
+<li>Why do we turn off the LCD?</li>
+<li>We know how to make a static picture, but how to we add motion into the mix?</li>
+<li>Also, how do I get input from the player?</li>
+<li>The code mentions shutting down audio, but how do I play some of those famed beeps and bloops?</li>
+<li>Writing graphics in that way sound tedious, is there no other way?</li>
+<li>Actually, wait, how do we make a game out of all this??</li>
+</ul>
+<p>... All of that answered, and more, in Part Ⅱ! 👀</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="where-to-go-next"><a class="header" href="#where-to-go-next">Where to go next</a></h1>
 <p>Oh.
 Well, you’ve reached the end of the tutorial...
@@ -1134,6 +1190,7 @@ A lot of the problems and questions you will be encountering have already been s
 <li><a href="https://rgbds.gbdev.io/docs/">RGBDS online documentation</a>, this includes <a href="https://rgbds.gbdev.io/docs/gbz80.7">an instruction reference</a>.</li>
 <li><a href="https://gbdev.io/gb-opcodes/optables">A more compact instruction table</a>, more useful if you’re already familiar with the instructions.</li>
 <li><a href="https://gbdev.io/pandocs">Pan Docs</a>,  which will tell you all about the hardware that I haven’t yet.</li>
+<li><a href="https://github.com/daid/gameboy-assembly-by-example">GB assembly by example</a>, Daid’s collection of code snippets. Consider this a continuation of the tutorial, but without explanations; it’s still useful to peruse them and ask about it, they are overall good quality.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="special-thanks"><a class="header" href="#special-thanks">Special Thanks</a></h1>
 <p>Big thank you to <a href="https://www.pouet.net/user.php?who=21982">Twoflower/Triad</a> for making the Hello World graphic.</p>
