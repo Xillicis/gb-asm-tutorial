@@ -167,14 +167,45 @@ To allow for cheap reuse, tiles aren’t stored in the tilemap directly; instead
   <img src="../assets/img/tile_id.png" alt="Screenshot highlighting where a tile's ID can be seen">
   <figcaption>
     The ID is displayed in hexadecimal without a prefix, so this is tile number $10, aka 16.
-    As may have noticed, the tiles are displayed in rows of 16, so it's easier to locate them.
+    As you may have noticed, the tiles are displayed in rows of 16, so it's easier to locate them by hexadecimal ID.
     Nifty!
   </figcaption>
 </figure>
 <p>Now, of course, tile IDs are numbers, like everything that computers deal with.
-IDs are stored in bytes, so there are 256 possible tile IDs.</p>
+IDs are stored in bytes, so there are 256 possible tile IDs.
+However, the astute reader will have noticed that there are 384 tiles in total<sup class="footnote-reference"><a href="#tile_blocks">1</a></sup>!
+By virtue of the <a href="https://en.wikipedia.org/wiki/Pigeonhole_principle">pigeonhole principle</a>, this means that some IDs refer to several tiles at the same time.</p>
+<p>Indeed, BGB reports that the first 128 tiles have the same IDs as the last 128.
+For simplicity’s sake, we will overlook this for now, so please ignore the first (topmost) 128 tiles for the time being.</p>
 <p>Now, please turn your attention to the “BG map” tab of BGB’s VRAM viewer, pictured below.</p>
 <p><img src="../assets/img/tilemap_viewer.png" alt="Screenshot of the tilemap viewer" /></p>
+<div class="box tip">
+<p>You may notice that the image shown is larger than what is displayed on-screen, which is outlined by a thicker border.
+We will explain this in Part Ⅱ.</p>
+</div>
+<p>Here we will be able to see the power of tile reuse in full force.
+As a convenience and a refresher, here are the tiles our Hello World loads into VRAM:</p>
+<p><img src="../assets/img/hello_world_tiles.png" alt="Enlarged view of the tiles loaded in VRAM" /></p>
+<p>You can see that we only loaded a single “blank” tile ($00, the first aka. top-left one), but it can be repeated to cover the whole background at no extra cost!</p>
+<p>Repetition can be more subtle: for example, tile $01 is used for the top-left corner of the H, E, L, L, and W!
+The R and L also both share their top-left tile ($2D); and so on.
+You can confirm this by hovering over tiles in the BG map tab, which shows the ID of the tile at that position.</p>
+<p>All in all, we can surmise that displaying graphics on the Game Boy consists of loading “patterns” (the tiles), and then telling the console which tile to display for each given location.</p>
+<div class="box tip decorated">
+<div><p>💭</p></div>
+<div>
+<p>“Tiles” were called differently in documentation of yore.
+They were usually called “patterns” or “characters”, the latter giving birth to the “CHR” abbreviation which is sometimes used to refer to tiles.</p>
+<p>For example, on the NES, tile data is usually provided by the cartridge in either <a href="http://wiki.nesdev.com/w/index.php/CHR_ROM_vs._CHR_RAM">CHR ROM or CHR RAM</a>.
+The term “CHR” is typically not used on the Game Boy, though exchanges between communities cause terms to “leak”, so some refer to the area of VRAM where tiles are stored as “CHR RAM” or “CHR VRAM”, for example.</p>
+<p>As with all such jargon whose meaning may depend on who you are talking to, I will stick to “tiles” across this entire tutorial for consistency, being what is currently the most standard in the GB dev community.</p>
+</div>
+</div>
+<hr />
+<div class="footnote-definition" id="tile_blocks"><sup class="footnote-definition-label">1</sup>
+<p>The even more astute (astuter?) reader will have noticed that 384 = 3 × 128.
+Thus, tiles are often conceptually grouped into three “blocks” of 128 tiles each, which BGB shows as separated by thicker horizontal lines.</p>
+</div>
 
                     </main>
 
