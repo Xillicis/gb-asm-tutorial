@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Registers - GB ASM Tutorial</title>
+        <title>Work in progress - GB ASM Tutorial</title>
         <!-- Custom HTML head -->
         
 
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="../help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item expanded "><a href="../part1/registers.html" class="active"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Graphics</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../part1/tiles.html"><strong aria-hidden="true">11.1.</strong> Tiles</a></li><li class="chapter-item "><a href="../part1/palettes.html"><strong aria-hidden="true">11.2.</strong> Palettes</a></li><li class="chapter-item "><a href="../part1/tilemap.html"><strong aria-hidden="true">11.3.</strong> Tilemap</a></li></ol></li><li class="chapter-item "><a href="../part1/wrapup.html"><strong aria-hidden="true">12.</strong> Wrapping up</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item "><a href="../part2/wip.html"><strong aria-hidden="true">13.</strong> Work in progress</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">14.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../next.html">Where to go next</a></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Home</a></li><li class="chapter-item affix "><a href="../roadmap.html">Roadmap</a></li><li class="chapter-item affix "><a href="../help-feedback.html">Help and feedback</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅰ — Hello World!</li><li class="chapter-item "><a href="../part1/setup.html"><strong aria-hidden="true">1.</strong> Setup</a></li><li class="chapter-item "><a href="../part1/hello_world.html"><strong aria-hidden="true">2.</strong> Hello World!</a></li><li class="chapter-item "><a href="../part1/toolchain.html"><strong aria-hidden="true">3.</strong> The toolchain</a></li><li class="chapter-item "><a href="../part1/bin_and_hex.html"><strong aria-hidden="true">4.</strong> Binary and hexadecimal</a></li><li class="chapter-item "><a href="../part1/registers.html"><strong aria-hidden="true">5.</strong> Registers</a></li><li class="chapter-item "><a href="../part1/assembly.html"><strong aria-hidden="true">6.</strong> Assembly basics</a></li><li class="chapter-item "><a href="../part1/memory.html"><strong aria-hidden="true">7.</strong> Memory</a></li><li class="chapter-item "><a href="../part1/operations.html"><strong aria-hidden="true">8.</strong> Operations &amp; flags</a></li><li class="chapter-item "><a href="../part1/jumps.html"><strong aria-hidden="true">9.</strong> Jumps</a></li><li class="chapter-item "><a href="../part1/tracing.html"><strong aria-hidden="true">10.</strong> Tracing</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Graphics</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../part1/tiles.html"><strong aria-hidden="true">11.1.</strong> Tiles</a></li><li class="chapter-item "><a href="../part1/palettes.html"><strong aria-hidden="true">11.2.</strong> Palettes</a></li><li class="chapter-item "><a href="../part1/tilemap.html"><strong aria-hidden="true">11.3.</strong> Tilemap</a></li></ol></li><li class="chapter-item "><a href="../part1/wrapup.html"><strong aria-hidden="true">12.</strong> Wrapping up</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅱ — Our first game</li><li class="chapter-item expanded "><a href="../part2/wip.html" class="active"><strong aria-hidden="true">13.</strong> Work in progress</a></li><li class="chapter-item affix "><li class="part-title">Part Ⅲ — Our second game</li><li class="chapter-item "><div><strong aria-hidden="true">14.</strong> To be written...</div></li><li class="spacer"></li><li class="chapter-item affix "><a href="../next.html">Where to go next</a></li><li class="chapter-item affix "><a href="../resources.html">Resources</a></li><li class="chapter-item affix "><a href="../thanks.html">Thanks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -117,7 +117,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/registers.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part2/wip.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
                     </div>
@@ -144,68 +144,26 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="registers"><a class="header" href="#registers">Registers</a></h1>
-<p>Alright!
-Now that we know what bits are, let’s talk about how they’re used.
-Don’t worry, this is mostly prep work for the next section, where we will—finally!—look at the code 👀</p>
-<p>First, if you opened BGB, you have been greeted with just the Game Boy screen.
-So, it’s time we pop the debugger open!
-Right-click the screen, select “Other”, and click “Debugger”.
-Oh, and while we’re at this, we might as well increase the screen size a little.</p>
-<video controls poster="../assets/vid/debugger.poster.png">
-	<source src="../assets/vid/debugger.webm" type="video/webm">
-	<source src="../assets/vid/debugger.mp4" type="video/mp4">
-<pre><code>&lt;img src=&quot;../assets/vid/debugger.gif&quot; alt=&quot;Video demonstration in BGB&quot;&gt;
-</code></pre>
-</video>
-<p>The debugger may look intimidating at first, but don’t worry, soon we’ll be very familiar with it!
-For now, let’s focus on this small box near the top-right, the <em>register viewer</em>.</p>
-<p><img src="../assets/img/reg_viewer.png" alt="Picture of the register viewer’s location" /></p>
-<div class="box warning decorated">
-<div><p>⚠️</p></div>
-<div>
-<p>The register viewer shows both <em>CPU registers</em> and some <em>hardware registers</em>.
-This lesson will only deal with CPU registers, so that’s why we will be ignoring some of these entries here.</p>
+                        <h1 id="work-in-progress"><a class="header" href="#work-in-progress">Work in progress</a></h1>
+<div class="box warning">
+<p class="box-title">🚧 🚧 🚧 🚧 🚧 🚧 🚧</p><p>As explained in the initial tutorial presentation, Part Ⅱ consists of us building an <em>Arkanoid</em> game.
+However, this requires a lot of planning: the entire roadmap needs to be designed before I can start writing the first lesson.</p>
+<p>If I was just making a game, I could afford to make bad design decisions and correct them later; however, such mistakes would only make the tutorial more difficult and confusing to follow.
+Some mistakes will however be made intentionally, so that we can learn how to overcome them, should you encounter them on your own.
+These need to be planned as well.</p>
+<p>For these reasons, Part Ⅱ is being worked on behind the scenes, <strong>and this may take a significant amount of time</strong>.
+Please hold tight while I (and others! ^^) are working on this, maybe <a href="https://twitter.com/issotm">follow me on Twitter</a> for (infrequent) updates, and go to the next page to find out what you can do in the meantime!</p>
+<p>Thank you for your patience 😊 and see you around on GBDev!</p>
 </div>
-</div>
-<p>What are CPU registers?
-Well, imagine you’re preparing a cake.
-You will be following a recipe, whose instructions may be “melt 125g of chocolate and 125g of butter, blend with 2 eggs” and so on.
-You will fetch some ingredients from the fridge as needed, but you don’t cook inside the fridge; for that, you have a small workspace.</p>
-<p>Registers are pretty much the CPU’s workspace.
-They are small, tiny chunks of memory embedded directly in the CPU (only 10 bytes for the Game Boy’s CPU, and even modern CPUs have less than a kilobyte if you don’t count <a href="https://en.wikipedia.org/wiki/SIMD"><abbr title="Single Instruction, Multiple Data">SIMD</abbr></a> registers).
-Operations are not performed directly on data stored in memory, which would be equivalent to breaking eggs directly inside our fridge, but they are performed on registers.</p>
-<div class="box tip decorated">
-<div><p>ℹ️</p></div>
-<div>
-<p>There are exceptions to this rule, like many other “rules” I will give in this tutorial; I will paper over them to keep the mental complexity reasonable, but don’t treat my word as gospel either.</p>
-</div>
-</div>
-<h2 id="general-purpose-registers"><a class="header" href="#general-purpose-registers">General-purpose registers</a></h2>
-<p>CPU registers can be placed into two categories: <em>general-purpose</em> and <em>special-purpose</em>.
-A “general-purpose” register (<abbr title="General-Purpose Register">GPR</abbr> for short) can be used for storing arbitrary data.
-Some GPRs are special nonetheless, as we will see later; but the distinction is “can I store arbitrary data in it?”.</p>
-<p>I won’t introduce special-purpose registers quite yet, as their purpose wouldn’t make sense yet.
-Rather, they will be discussed as the relevant concepts are introduced.</p>
-<p>The Game Boy CPU has seven 8-bit GPRs: <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, <code>e</code>, <code>h</code>, and <code>l</code>.
-“8-bit” means that, well, they store 8 bits.
-Thus, they can store integers from 0 to 255 (%1111_1111 aka $FF).</p>
-<p><code>a</code> is the <em>accumulator</em>, and we will see later that it can be used in special ways.</p>
-<p>A special feature is that these registers, besides <code>a</code>, are <em>paired up</em>, and the pairs can be treated as the 16-bit registers <code>bc</code>, <code>de</code>, and <code>hl</code>.
-The pairs are <em>not</em> separate from the individual registers; for example, if <code>d</code> contains 192 ($C0) and <code>e</code> contains 222 ($DE), then <code>de</code> contains 49374 ($C0DE) = 192 × 256 + 222.
-The other pairs work similarly.</p>
-<p>Modifying <code>de</code> actually modifies both <code>d</code> and <code>e</code> at the same time, and modifying either individually also affects the pair.
-How do we modify registers?
-Let’s see how, with our first assembly instructions!</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../part1/bin_and_hex.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../part1/wrapup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../part1/assembly.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../next.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -214,10 +172,10 @@ Let’s see how, with our first assembly instructions!</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../part1/bin_and_hex.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../part1/wrapup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../part1/assembly.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../next.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
