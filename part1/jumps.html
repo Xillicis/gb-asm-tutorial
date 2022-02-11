@@ -4,13 +4,14 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Jumps - GB ASM Tutorial</title>
+
+
         <!-- Custom HTML head -->
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site:id" content="@issotm"/>
 <meta property="og:title" content="Jumps - GB ASM Tutorial" />
 <meta property="og:image" content="https://eldred.fr/gb-asm-tutorial/assets/banner/1200x628.png" />
 <meta property="og:site_name" content="GB ASM Tutorial"/>
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
@@ -23,9 +24,11 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
@@ -33,6 +36,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../css/custom.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -91,8 +95,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -125,6 +128,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/jumps.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -138,6 +142,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -154,7 +159,7 @@
 <p>Once this lesson is done, we will be able to understand all of <code>CopyTiles</code>!</p>
 </div>
 <p>So far, all the code we have seen was linear: it executes top to bottom.
-But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (”if the crêpes start sticking, grease the pan again”), and sometimes, we need to perform actions repeatedly (”If there is some batter left, repeat from step 5”).</p>
+But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (“if the crêpes start sticking, grease the pan again”), and sometimes, we need to perform actions repeatedly (“If there is some batter left, repeat from step 5”).</p>
 <p>Both of these imply reading the recipe non-lineraly.
 In assembly, this is achieved using <em>jumps</em>.</p>
 <p>The CPU has a special-purpose register called “PC”, for Program Counter.
@@ -182,7 +187,7 @@ Don’t worry, we will see later why it’s required.</p>
 <h2 id="conditional-jumps"><a class="header" href="#conditional-jumps">Conditional jumps</a></h2>
 <p>Now to the <em>really</em> interesting part.
 Let’s examine the loop responsible for copying tiles:</p>
-<pre><code class="language-rgbasm linenos">	; Copy the tile data
+<pre><code class="language-rgbasm linenos start=24">	; Copy the tile data
 	ld de, Tiles
 	ld hl, $9000
 	ld bc, TilesEnd - Tiles
@@ -209,8 +214,8 @@ Then, we set <code>hl</code> to $9000, which is the address where we will start 
 <li><code>bc</code> contains how many bytes we have to copy.</li>
 </ul>
 <p>Then we arrive at the main loop.
-We read one byte from the source (line 6), and write it to the destination (line 7).
-We increment the destination (via the implicit <code>inc hl</code> done by <code>ld [hli], a</code>) and source pointers (line 8), so the following loop iteration processes the next byte.</p>
+We read one byte from the source (line 29), and write it to the destination (line 30).
+We increment the destination (via the implicit <code>inc hl</code> done by <code>ld [hli], a</code>) and source pointers (line 31), so the following loop iteration processes the next byte.</p>
 <p>Here’s the interesting part: since we’ve just copied one byte, that means we have one less to go, so we <code>dec bc</code>.
 (We have seen <code>dec</code> two lessons ago; as a refresher, it simply decreases the value stored in <code>bc</code> by one.)
 Since <code>bc</code> contains the amount of bytes that still need to be copied, it’s trivial to see that we should simply repeat the operation if <code>bc</code> != 0.</p>
@@ -222,7 +227,7 @@ Since <code>bc</code> contains the amount of bytes that still need to be copied,
 </div>
 <p><code>ld a, b</code> and <code>or c</code> “bitwise OR” <code>b</code> and <code>c</code> together; it’s enough to know for now that it leaves 0 in <code>a</code> if and only if <code>bc</code> == 0.
 And <code>or</code> updates the Z flag!
-So, after line 11, the Z flag is set if and only if <code>bc</code> == 0, that is, if we should exit the loop.</p>
+So, after line 34, the Z flag is set if and only if <code>bc</code> == 0, that is, if we should exit the loop.</p>
 <p>And this is where conditional jumps come into the picture!
 See, it’s possible to <strong>conditionally</strong> “take” a jump depending on the state of the flags.</p>
 <p>There are four “conditions”:</p>
@@ -232,7 +237,7 @@ See, it’s possible to <strong>conditionally</strong> “take” a jump dependi
 <tr><td>Carry</td><td><code>c</code></td><td>C is set (last operation overflowed)</td></tr>
 <tr><td>No carry</td><td><code>nc</code></td><td>C is not set (last operation did not overflow)</td></tr>
 </tbody></table>
-<p>Thus, <code>jp nz, CopyTiles</code> can be read as “if the Z flag is not set, then jump to <code>CopyTiles</code>“.
+<p>Thus, <code>jp nz, CopyTiles</code> can be read as “if the Z flag is not set, then jump to <code>CopyTiles</code>”.
 Since we’re jumping <em>backwards</em>, we will repeat the instructions again: we have just created a <strong>loop</strong>!</p>
 <p>Okay, we’ve been talking about the code a lot, and we have seen it run, but we haven’t really seen <em>how</em> it runs.
 Let’s watch the magic unfold in slow-motion in the next lesson!</p>
@@ -250,9 +255,11 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
                             <a rel="prev" href="../part1/operations.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../part1/tracing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -262,6 +269,7 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
                     <a rel="prev" href="../part1/operations.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../part1/tracing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -269,17 +277,25 @@ Still, it’s pretty much “where the CPU is currently reading from”, but it�
 
         </div>
 
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="../js/linenos.js"></script>
+
+
     </body>
 </html>

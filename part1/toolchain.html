@@ -4,13 +4,14 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>The toolchain - GB ASM Tutorial</title>
+
+
         <!-- Custom HTML head -->
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site:id" content="@issotm"/>
 <meta property="og:title" content="The toolchain - GB ASM Tutorial" />
 <meta property="og:image" content="https://eldred.fr/gb-asm-tutorial/assets/banner/1200x628.png" />
 <meta property="og:site_name" content="GB ASM Tutorial"/>
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
@@ -23,9 +24,11 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
@@ -33,6 +36,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../css/custom.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -91,8 +95,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -125,6 +128,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/toolchain.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -138,6 +142,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -175,7 +180,7 @@ For simplicity, we defaulted a lot of these values to 0 for the time being; we�
 </ul>
 <p>When the console first starts up, it runs <a href="https://github.com/ISSOtm/gb-bootroms">a little program</a> known as the <em>boot ROM</em>, which reads and draws the logo from the cartridge, and displays the little boot animation.
 When the animation is finished, the console checks if the logo matches a copy that it stores internally; if there is a mismatch, <strong>it locks up!</strong>
-And, since it locks up, our game never gets to run... 😦
+And, since it locks up, our game never gets to run… 😦
 This was meant as an anti-piracy measure; however, that measure <a href="https://en.wikipedia.org/wiki/Sega_v._Accolade">has since then been ruled as invalid</a>, so don’t worry, we are clear! 😄</p>
 <p>Similarly, the boot ROM also computes a <em><a href="https://en.wikipedia.org/wiki/Checksum">checksum</a></em> of the header, supposedly to ensure that it isn’t corrupted.
 The header also contains a copy of this checksum; if it doesn’t match what the boot ROM computed, then the boot ROM <strong>also locks up!</strong></p>
@@ -202,9 +207,11 @@ The file names don’t matter, either; it’s just practical to keep the same na
                             <a rel="prev" href="../part1/hello_world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../part1/bin_and_hex.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -214,6 +221,7 @@ The file names don’t matter, either; it’s just practical to keep the same na
                     <a rel="prev" href="../part1/hello_world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../part1/bin_and_hex.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -221,17 +229,25 @@ The file names don’t matter, either; it’s just practical to keep the same na
 
         </div>
 
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="../js/linenos.js"></script>
+
+
     </body>
 </html>

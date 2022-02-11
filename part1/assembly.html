@@ -4,13 +4,14 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Assembly basics - GB ASM Tutorial</title>
+
+
         <!-- Custom HTML head -->
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site:id" content="@issotm"/>
 <meta property="og:title" content="Assembly basics - GB ASM Tutorial" />
 <meta property="og:image" content="https://eldred.fr/gb-asm-tutorial/assets/banner/1200x628.png" />
 <meta property="og:site_name" content="GB ASM Tutorial"/>
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
@@ -23,9 +24,11 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
@@ -33,6 +36,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../css/custom.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -91,8 +95,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -125,6 +128,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/assembly.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -138,6 +142,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -180,14 +185,14 @@ In any language, good comments are very useful; in assembly, they play an even m
 Each line can contain a <em>directive</em>, which instructs RGBASM to do something, or an <em>instruction</em><sup class="footnote-reference"><a href="#instr_directive">1</a></sup>, which is copied directly into the ROM.
 We will talk about directives later, for now let’s focus on instructions: for example, in the snippet above, we will ignore lines 1 (<code>INCLUDE</code>), 7 (<code>ds</code>), and 3 (<code>SECTION</code>).</p>
 <p>To continue the cake-baking analogy even further, instructions are like steps in a recipe.
-The console’s processor (<abbr title="Central Processing Unit">CPU</abbr>) executes instructions one at a time, and that... eventually does something!
+The console’s processor (<abbr title="Central Processing Unit">CPU</abbr>) executes instructions one at a time, and that… eventually does something!
 Like baking a cake, drawing a “Hello World” image, or displaying a Game Boy programming tutorial!
 *wink* *wink*</p>
 <p>Instructions have a <em>mnemonic</em>, which is a name they are given, and <em>operands</em>, which indicate what they should act upon.
 For example, in “melt the chocolate and butter in a saucepan”, <em>the whole sentence</em> would be the instruction, <em>the verb</em> “melt” would be the mnemonic, and “chocolate”, “butter”, and “saucepan” the operands, i.e. some kind of parameters to the operation.</p>
 <p>Let’s discuss the most fundamental instruction, <strong><code>ld</code></strong>.
-<code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>“</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>“</a>).
-For example, take line 11’s <code>ld a, 0</code>: it copies (”loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
+<code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>”</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>”</a>).
+For example, take line 11’s <code>ld a, 0</code>: it copies (“loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
 If you look further in the file, line 33 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
 <table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Load</td><td><code>ld</code></td><td>Copies values around</td></tr>
@@ -201,7 +206,7 @@ If you look further in the file, line 33 has <code>ld a, b</code>, which causes 
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
-<p>RGBDS has an <a href="https://rgbds.gbdev.io/docs/v0.5.1/gbz80.7">instruction reference</a> worth bookmarking, and you can also consult it locally with <code>man 7 gbz80</code> if RGBDS is installed on your machine (except Windows...).
+<p>RGBDS has an <a href="https://rgbds.gbdev.io/docs/v0.5.1/gbz80.7">instruction reference</a> worth bookmarking, and you can also consult it locally with <code>man 7 gbz80</code> if RGBDS is installed on your machine (except Windows…).
 The descriptions there are more succinct, since they’re intended as reminders, not as tutorials.</p>
 </div>
 </div>
@@ -210,7 +215,7 @@ The descriptions there are more succinct, since they’re intended as reminders,
 <p>Technically, instructions in RGBASM are implemented as directives, basically writing their encoded form to the ROM; but the distinction between the instructions in the source code and those in the final ROM is not worth bringing up right now.</p>
 </div>
 <div class="footnote-definition" id="ld_imm_from"><sup class="footnote-definition-label">2</sup>
-<p>The curious reader may ask where the value is copied <em>from</em>. The answer is simply that the “immediate“ byte ($00 in this example) is stored in ROM just after the instruction’s opcode byte, and it’s what gets copied to <code>a</code>.
+<p>The curious reader may ask where the value is copied <em>from</em>. The answer is simply that the &quot;immediate&quot; byte ($00 in this example) is stored in ROM just after the instruction’s opcode byte, and it’s what gets copied to <code>a</code>.
 We will come back to this when we talk about how instructions are encoded later on.</p>
 </div>
 
@@ -221,9 +226,11 @@ We will come back to this when we talk about how instructions are encoded later 
                             <a rel="prev" href="../part1/registers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../part1/memory.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -233,6 +240,7 @@ We will come back to this when we talk about how instructions are encoded later 
                     <a rel="prev" href="../part1/registers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../part1/memory.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -240,17 +248,25 @@ We will come back to this when we talk about how instructions are encoded later 
 
         </div>
 
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="../js/linenos.js"></script>
+
+
     </body>
 </html>

@@ -4,13 +4,14 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Operations &amp; flags - GB ASM Tutorial</title>
+
+
         <!-- Custom HTML head -->
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site:id" content="@issotm"/>
 <meta property="og:title" content="Operations &amp; flags - GB ASM Tutorial" />
 <meta property="og:image" content="https://eldred.fr/gb-asm-tutorial/assets/banner/1200x628.png" />
 <meta property="og:site_name" content="GB ASM Tutorial"/>
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
@@ -23,9 +24,11 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
@@ -33,6 +36,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../css/custom.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -91,8 +95,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -125,6 +128,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/operations.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -138,6 +142,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -161,7 +166,7 @@ So for example, the <code>dec bc</code> at line 32 of <code>hello-world.asm</cod
 Can we go a bit faster, though?
 Sure we can, with <code>add</code> and <code>sub</code>!
 These respectively ADD and SUBtract arbitrary values (either a constant, or a register).
-Neither is used in the tutorial, but a sibling of <code>sub</code>‘s is: have you noticed little <code>cp</code> over at line 17?
+Neither is used in the tutorial, but a sibling of <code>sub</code>’s is: have you noticed little <code>cp</code> over at line 17?
 <code>cp</code> allows ComParing values.
 It works the same as <code>sub</code>, but it discards the result instead of writing it back.
 “Wait, so it does nothing?” you may ask; well, it <em>does</em> update the <strong>flags</strong>.</p>
@@ -193,7 +198,7 @@ But what if I write this instead?</p>
 </code></pre>
 <p>Well, one could think that <code>a</code> would be equal to 220 + 42 = 262, but that would be incorrect.
 Remember, <code>a</code> is an 8-bit register, <em>it can only store eight bits of information</em>!
-And if we were to write 262 in binary, we would get %100000110, which requires at least 9 bits...
+And if we were to write 262 in binary, we would get %100000110, which requires at least 9 bits…
 So what happens?
 Simply, that ninth bit is <em>lost</em>, and the value that we end up with is %00000110 = 6.
 This is called an <em>overflow</em>: after <strong>adding</strong>, we get a value <strong>smaller</strong> than what we started with.</p>
@@ -237,9 +242,11 @@ Great!</p>
                             <a rel="prev" href="../part1/memory.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../part1/jumps.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -249,6 +256,7 @@ Great!</p>
                     <a rel="prev" href="../part1/memory.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../part1/jumps.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -256,17 +264,25 @@ Great!</p>
 
         </div>
 
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="../js/linenos.js"></script>
+
+
     </body>
 </html>

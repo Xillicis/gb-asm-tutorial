@@ -5,13 +5,14 @@
         <meta charset="UTF-8">
         <title>GB ASM Tutorial</title>
         <meta name="robots" content="noindex" />
+
+
         <!-- Custom HTML head -->
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site:id" content="@issotm"/>
 <meta property="og:title" content="GB ASM Tutorial" />
 <meta property="og:image" content="https://eldred.fr/gb-asm-tutorial/assets/banner/1200x628.png" />
 <meta property="og:site_name" content="GB ASM Tutorial"/>
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
@@ -24,9 +25,11 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
@@ -34,6 +37,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="css/custom.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -92,8 +96,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -123,6 +126,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -136,6 +140,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -189,7 +194,7 @@ If you are looking to program GBC games and run them on a GBA, you’re at the r
 <p>In Part Ⅰ, we run our first “Hello World!” program, which we then dissect to learn what makes the Game Boy tick.</p>
 <p>In Part Ⅱ, we program our first game, a clone of <em>Arkanoid</em>; we learn how to prod the hardware into having something we can call a “game”.
 Along the way, we will make plenty of mistakes, so we can learn how to debug our code.</p>
-<p>And finally, Part Ⅲ is about “advanced” use of the hardware, where we learn how to make even better-looking games, and we program a Shoot ‘Em Up!</p>
+<p>And finally, Part Ⅲ is about “advanced” use of the hardware, where we learn how to make even better-looking games, and we program a Shoot ’Em Up!</p>
 <hr />
 <p>Unfortunately, this tutorial is a work in progress.
 Currently, <strong>Part I is being written</strong>, and Parts II and III should follow soon after.</p>
@@ -227,7 +232,7 @@ You just need to <a href="https://rgbds.gbdev.io/install">install RGBDS</a>, and
 <h4 id="macos"><a class="header" href="#macos">macOS</a></h4>
 <p>At the time of writing this, macOS (up to 11.0, the current latest release) ships a very outdated GNU Make.
 You can check it by opening a terminal, and running <code>make --version</code>, which should indicate “GNU Make” and a date, among other things.</p>
-<p>If your Make is too old, you can update it using <a href="https://brew.sh">Homebrew</a>‘s formula <a href="https://formulae.brew.sh/formula/make#default"><code>make</code></a>.
+<p>If your Make is too old, you can update it using <a href="https://brew.sh">Homebrew</a>’s formula <a href="https://formulae.brew.sh/formula/make#default"><code>make</code></a>.
 At the time of writing, this should print a warning that the updated Make has been installed as <code>gmake</code>; you can either follow the suggestion to use it as your “default” <code>make</code>, or use <code>gmake</code> instead of <code>make</code> in this tutorial.</p>
 <h4 id="linux"><a class="header" href="#linux">Linux</a></h4>
 <p>Once RGBDS is installed, open a terminal and run <code>make --version</code> to check your Make version (which is likely GNU Make).</p>
@@ -256,7 +261,7 @@ However, an emulator can provide debugging tools, allowing you to control execut
 These are vital if you want GB dev to be <em>fun</em>, trust me!</li>
 <li><strong>Good accuracy</strong>:
 Accuracy means “how faithful to the original console something is”.
-Using a bad emulator for playing games can work (to some extent, and even then...), but using it for <em>developing</em> a game makes it likely to accidentally render your game incompatible with the actual console.
+Using a bad emulator for playing games can work (to some extent, and even then…), but using it for <em>developing</em> a game makes it likely to accidentally render your game incompatible with the actual console.
 For more info, read <a href="https://arstechnica.com/?post_type=post&amp;p=44524">this article on Ars Technica</a> (especially the <q>An emulator for every game</q> section at the top of page 2).
 You can compare GB emulator accuracy on <a href="https://daid.github.io/GBEmulatorShootout/">Daid’s GB-emulator-shootout</a>.</li>
 </ul>
@@ -268,7 +273,7 @@ Other debugging emulators are possible (such as SameBoy on macOS), but I will be
 The rest of this chapter will be dedicated to explaining how and why it works.</p>
 <p>Note that we will need to type a lot of commands, so open a terminal now.
 It’s a good idea to create a new directory (<code>mkdir gb_hello_world</code>, for example, then <code>cd gb_hello_world</code> to enter the new directory).</p>
-<p>Grab the following files (right-click each link, “Save Link As...”), and place them all in this new directory:</p>
+<p>Grab the following files (right-click each link, “Save Link As…”), and place them all in this new directory:</p>
 <ul>
 <li><a href="part1/../assets/hello-world.asm"><code>hello-world.asm</code></a></li>
 <li><a href="https://raw.githubusercontent.com/gbdev/hardware.inc/v4.0/hardware.inc"><code>hardware.inc</code></a></li>
@@ -326,7 +331,7 @@ Now, we just need to run it; open BGB, right-click the window that opened, and l
 </div>
 <p>You could also take a flash cart (I use the <a href="https://krikzz.com/store/home/47-everdrive-gb.html">EverDrive GB X5</a>, but there are plenty of alternatives), load up your ROM onto it, and run it on an actual console!</p>
 <p><img src="part1/../assets/img/hello_dmg.jpg" alt="Picture of the Hello World running on a physical DMG" /></p>
-<p>Well, now that we have something working, it’s time to peel back the curtains...</p>
+<p>Well, now that we have something working, it’s time to peel back the curtains…</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-toolchain"><a class="header" href="#the-toolchain">The toolchain</a></h1>
 <p>So, in the previous lesson, we built a nice little “Hello World!” ROM.
 Now, let’s find out exactly what we did.</p>
@@ -353,7 +358,7 @@ For simplicity, we defaulted a lot of these values to 0 for the time being; we�
 </ul>
 <p>When the console first starts up, it runs <a href="https://github.com/ISSOtm/gb-bootroms">a little program</a> known as the <em>boot ROM</em>, which reads and draws the logo from the cartridge, and displays the little boot animation.
 When the animation is finished, the console checks if the logo matches a copy that it stores internally; if there is a mismatch, <strong>it locks up!</strong>
-And, since it locks up, our game never gets to run... 😦
+And, since it locks up, our game never gets to run… 😦
 This was meant as an anti-piracy measure; however, that measure <a href="https://en.wikipedia.org/wiki/Sega_v._Accolade">has since then been ruled as invalid</a>, so don’t worry, we are clear! 😄</p>
 <p>Similarly, the boot ROM also computes a <em><a href="https://en.wikipedia.org/wiki/Checksum">checksum</a></em> of the header, supposedly to ensure that it isn’t corrupted.
 The header also contains a copy of this checksum; if it doesn’t match what the boot ROM computed, then the boot ROM <strong>also locks up!</strong></p>
@@ -434,23 +439,23 @@ Fortunately, hexadecimal is here to save the day! 🦸</p>
 <p>Like binary, we will use a prefix to denote hexadecimal, namely <code>$</code>.
 So, 42 = $2A, and 1024 = $400.
 This is <em>much</em> more compact than binary, and slightly more than decimal, too; but what makes hexadecimal very interesting is that one nibble corresponds <em>exactly</em> to 4 bits!</p>
-<table><thead><tr><th align="center">Nibble</th><th align="center">Bits</th></tr></thead><tbody>
-<tr><td align="center">$0</td><td align="center">%0000</td></tr>
-<tr><td align="center">$1</td><td align="center">%0001</td></tr>
-<tr><td align="center">$2</td><td align="center">%0010</td></tr>
-<tr><td align="center">$3</td><td align="center">%0011</td></tr>
-<tr><td align="center">$4</td><td align="center">%0100</td></tr>
-<tr><td align="center">$5</td><td align="center">%0101</td></tr>
-<tr><td align="center">$6</td><td align="center">%0110</td></tr>
-<tr><td align="center">$7</td><td align="center">%0111</td></tr>
-<tr><td align="center">$8</td><td align="center">%1000</td></tr>
-<tr><td align="center">$9</td><td align="center">%1001</td></tr>
-<tr><td align="center">$A</td><td align="center">%1010</td></tr>
-<tr><td align="center">$B</td><td align="center">%1010</td></tr>
-<tr><td align="center">$C</td><td align="center">%1100</td></tr>
-<tr><td align="center">$D</td><td align="center">%1101</td></tr>
-<tr><td align="center">$E</td><td align="center">%1110</td></tr>
-<tr><td align="center">$F</td><td align="center">%1111</td></tr>
+<table><thead><tr><th style="text-align: center">Nibble</th><th style="text-align: center">Bits</th></tr></thead><tbody>
+<tr><td style="text-align: center">$0</td><td style="text-align: center">%0000</td></tr>
+<tr><td style="text-align: center">$1</td><td style="text-align: center">%0001</td></tr>
+<tr><td style="text-align: center">$2</td><td style="text-align: center">%0010</td></tr>
+<tr><td style="text-align: center">$3</td><td style="text-align: center">%0011</td></tr>
+<tr><td style="text-align: center">$4</td><td style="text-align: center">%0100</td></tr>
+<tr><td style="text-align: center">$5</td><td style="text-align: center">%0101</td></tr>
+<tr><td style="text-align: center">$6</td><td style="text-align: center">%0110</td></tr>
+<tr><td style="text-align: center">$7</td><td style="text-align: center">%0111</td></tr>
+<tr><td style="text-align: center">$8</td><td style="text-align: center">%1000</td></tr>
+<tr><td style="text-align: center">$9</td><td style="text-align: center">%1001</td></tr>
+<tr><td style="text-align: center">$A</td><td style="text-align: center">%1010</td></tr>
+<tr><td style="text-align: center">$B</td><td style="text-align: center">%1010</td></tr>
+<tr><td style="text-align: center">$C</td><td style="text-align: center">%1100</td></tr>
+<tr><td style="text-align: center">$D</td><td style="text-align: center">%1101</td></tr>
+<tr><td style="text-align: center">$E</td><td style="text-align: center">%1110</td></tr>
+<tr><td style="text-align: center">$F</td><td style="text-align: center">%1111</td></tr>
 </tbody></table>
 <p>This makes it very easy to convert between binary and hexadecimal, while retaining a compact enough notation.
 Thus, hexadecimal is used a lot more than binary.
@@ -553,14 +558,14 @@ In any language, good comments are very useful; in assembly, they play an even m
 Each line can contain a <em>directive</em>, which instructs RGBASM to do something, or an <em>instruction</em><sup class="footnote-reference"><a href="#instr_directive">1</a></sup>, which is copied directly into the ROM.
 We will talk about directives later, for now let’s focus on instructions: for example, in the snippet above, we will ignore lines 1 (<code>INCLUDE</code>), 7 (<code>ds</code>), and 3 (<code>SECTION</code>).</p>
 <p>To continue the cake-baking analogy even further, instructions are like steps in a recipe.
-The console’s processor (<abbr title="Central Processing Unit">CPU</abbr>) executes instructions one at a time, and that... eventually does something!
+The console’s processor (<abbr title="Central Processing Unit">CPU</abbr>) executes instructions one at a time, and that… eventually does something!
 Like baking a cake, drawing a “Hello World” image, or displaying a Game Boy programming tutorial!
 *wink* *wink*</p>
 <p>Instructions have a <em>mnemonic</em>, which is a name they are given, and <em>operands</em>, which indicate what they should act upon.
 For example, in “melt the chocolate and butter in a saucepan”, <em>the whole sentence</em> would be the instruction, <em>the verb</em> “melt” would be the mnemonic, and “chocolate”, “butter”, and “saucepan” the operands, i.e. some kind of parameters to the operation.</p>
 <p>Let’s discuss the most fundamental instruction, <strong><code>ld</code></strong>.
-<code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>“</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>“</a>).
-For example, take line 11’s <code>ld a, 0</code>: it copies (”loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
+<code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>”</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>”</a>).
+For example, take line 11’s <code>ld a, 0</code>: it copies (“loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
 If you look further in the file, line 33 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
 <table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Load</td><td><code>ld</code></td><td>Copies values around</td></tr>
@@ -574,7 +579,7 @@ If you look further in the file, line 33 has <code>ld a, b</code>, which causes 
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
-<p>RGBDS has an <a href="https://rgbds.gbdev.io/docs/v0.5.1/gbz80.7">instruction reference</a> worth bookmarking, and you can also consult it locally with <code>man 7 gbz80</code> if RGBDS is installed on your machine (except Windows...).
+<p>RGBDS has an <a href="https://rgbds.gbdev.io/docs/v0.5.1/gbz80.7">instruction reference</a> worth bookmarking, and you can also consult it locally with <code>man 7 gbz80</code> if RGBDS is installed on your machine (except Windows…).
 The descriptions there are more succinct, since they’re intended as reminders, not as tutorials.</p>
 </div>
 </div>
@@ -583,7 +588,7 @@ The descriptions there are more succinct, since they’re intended as reminders,
 <p>Technically, instructions in RGBASM are implemented as directives, basically writing their encoded form to the ROM; but the distinction between the instructions in the source code and those in the final ROM is not worth bringing up right now.</p>
 </div>
 <div class="footnote-definition" id="ld_imm_from"><sup class="footnote-definition-label">2</sup>
-<p>The curious reader may ask where the value is copied <em>from</em>. The answer is simply that the “immediate“ byte ($00 in this example) is stored in ROM just after the instruction’s opcode byte, and it’s what gets copied to <code>a</code>.
+<p>The curious reader may ask where the value is copied <em>from</em>. The answer is simply that the &quot;immediate&quot; byte ($00 in this example) is stored in ROM just after the instruction’s opcode byte, and it’s what gets copied to <code>a</code>.
 We will come back to this when we talk about how instructions are encoded later on.</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="memory"><a class="header" href="#memory">Memory</a></h1>
@@ -595,7 +600,7 @@ Since you have the basics, from now on, we’ll be looking at more and more conc
 </div>
 </div>
 <p>If we look at line 29, we see <code>ld a, [de]</code>.
-Given what we just learned, this copies a value into register <code>a</code>... but where from?
+Given what we just learned, this copies a value into register <code>a</code>… but where from?
 What do these brackets mean?
 To answer that, we need to talk about <em>memory</em>.</p>
 <h2 id="whats-a-memory"><a class="header" href="#whats-a-memory">What’s a memory?</a></h2>
@@ -612,7 +617,7 @@ Like street numbers!
 The first cell has address 0, then address 1, 2, and so on.
 On the Game Boy, each cell contains <em>8 bits</em>, i.e. a <em>byte</em>.</p>
 <p>How many cells are there?
-Well, this is actually a trick question...</p>
+Well, this is actually a trick question…</p>
 <h2 id="the-many-types-of-memory"><a class="header" href="#the-many-types-of-memory">The many types of memory</a></h2>
 <p>There are several memory chips in the Game Boy, but we can put them into two categories: <abbr title="Read-Only Memory">ROM</abbr> and <abbr title="Random Access Memory">RAM</abbr><sup class="footnote-reference"><a href="#rom_ram_and">2</a></sup>.
 ROM simply designates memory that cannot be written to<sup class="footnote-reference"><a href="#rom_ro">3</a></sup>, and RAM memory that can be written to.</p>
@@ -663,8 +668,8 @@ For example, consider the <code>ld de, Tiles</code> at line 25.
 <code>Tiles</code> (line 64) is referring to the first byte of the tile data; if we assume that the tile data ends up being stored starting at $0193, then <code>ld de, Tiles</code> is equivalent to <code>ld de, $0193</code>!</p>
 <h2 id="whats-with-the-brackets"><a class="header" href="#whats-with-the-brackets">What’s with the brackets?</a></h2>
 <p>Right, we came into this because we wanted to know what the brackets in <code>ld a, [de]</code> mean.
-Well, they can basically be read as “at address...”.
-For example, <code>ld a, b</code> can be read as “copy into <code>a</code> the value stored in <code>b</code>“; <code>ld a, [$5414]</code> would be read as “copy into <code>a</code> the value stored at address $5414”, and <code>ld a, [de]</code> would be read as “copy into <code>a</code> the value stored at address <code>de</code>“.
+Well, they can basically be read as “at address…”.
+For example, <code>ld a, b</code> can be read as “copy into <code>a</code> the value stored in <code>b</code>”; <code>ld a, [$5414]</code> would be read as “copy into <code>a</code> the value stored at address $5414”, and <code>ld a, [de]</code> would be read as “copy into <code>a</code> the value stored at address <code>de</code>”.
 Wait, what does that mean?
 Well, if <code>de</code> contains the value $5414, then <code>ld a, [de]</code> will do the same thing as <code>ld a, [$5414]</code>.</p>
 <div class="box tip">
@@ -677,11 +682,11 @@ It’s actually a special notation, which can also be written as <code>[hl+]</co
 It functions as <code>[hl]</code>, but <code>hl</code> is <em>incremented</em> just after memory is accessed.
 <code>[hld]</code>/<code>[hl-]</code> is the mirror of this one, <em>decrementing</em> <code>hl</code> instead of incrementing it.</p>
 <h2 id="an-example"><a class="header" href="#an-example">An example</a></h2>
-<p>So, if we look at the first two instructions of <code>.copyTiles</code>:</p>
-<pre><code class="language-rgbasm">	ld a, [de]
+<p>So, if we look at the first two instructions of <code>CopyTiles</code>:</p>
+<pre><code class="language-rgbasm linenos start=29">	ld a, [de]
 	ld [hli], a
 </code></pre>
-<p>...we can see that we’re copying the byte in memory <em>pointed to</em> by <code>de</code> (that is, whose address is contained in <code>de</code>) into the byte pointed to by <code>hl</code>.
+<p>…we can see that we’re copying the byte in memory <em>pointed to</em> by <code>de</code> (that is, whose address is contained in <code>de</code>) into the byte pointed to by <code>hl</code>.
 Here, <code>a</code> serves as temporary storage, since the CPU is unable to perform <code>ld [hl], [de]</code> directly.</p>
 <p>While we’re at this, let’s examine the rest of <code>.copyTiles</code> in the following lessons!</p>
 <hr />
@@ -712,7 +717,7 @@ So for example, the <code>dec bc</code> at line 32 of <code>hello-world.asm</cod
 Can we go a bit faster, though?
 Sure we can, with <code>add</code> and <code>sub</code>!
 These respectively ADD and SUBtract arbitrary values (either a constant, or a register).
-Neither is used in the tutorial, but a sibling of <code>sub</code>‘s is: have you noticed little <code>cp</code> over at line 17?
+Neither is used in the tutorial, but a sibling of <code>sub</code>’s is: have you noticed little <code>cp</code> over at line 17?
 <code>cp</code> allows ComParing values.
 It works the same as <code>sub</code>, but it discards the result instead of writing it back.
 “Wait, so it does nothing?” you may ask; well, it <em>does</em> update the <strong>flags</strong>.</p>
@@ -744,7 +749,7 @@ But what if I write this instead?</p>
 </code></pre>
 <p>Well, one could think that <code>a</code> would be equal to 220 + 42 = 262, but that would be incorrect.
 Remember, <code>a</code> is an 8-bit register, <em>it can only store eight bits of information</em>!
-And if we were to write 262 in binary, we would get %100000110, which requires at least 9 bits...
+And if we were to write 262 in binary, we would get %100000110, which requires at least 9 bits…
 So what happens?
 Simply, that ninth bit is <em>lost</em>, and the value that we end up with is %00000110 = 6.
 This is called an <em>overflow</em>: after <strong>adding</strong>, we get a value <strong>smaller</strong> than what we started with.</p>
@@ -785,7 +790,7 @@ Great!</p>
 <p>Once this lesson is done, we will be able to understand all of <code>CopyTiles</code>!</p>
 </div>
 <p>So far, all the code we have seen was linear: it executes top to bottom.
-But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (”if the crêpes start sticking, grease the pan again”), and sometimes, we need to perform actions repeatedly (”If there is some batter left, repeat from step 5”).</p>
+But this doesn’t scale: sometimes, we need to perform certain actions depending on the result of others (“if the crêpes start sticking, grease the pan again”), and sometimes, we need to perform actions repeatedly (“If there is some batter left, repeat from step 5”).</p>
 <p>Both of these imply reading the recipe non-lineraly.
 In assembly, this is achieved using <em>jumps</em>.</p>
 <p>The CPU has a special-purpose register called “PC”, for Program Counter.
@@ -813,7 +818,7 @@ Don’t worry, we will see later why it’s required.</p>
 <h2 id="conditional-jumps"><a class="header" href="#conditional-jumps">Conditional jumps</a></h2>
 <p>Now to the <em>really</em> interesting part.
 Let’s examine the loop responsible for copying tiles:</p>
-<pre><code class="language-rgbasm linenos">	; Copy the tile data
+<pre><code class="language-rgbasm linenos start=24">	; Copy the tile data
 	ld de, Tiles
 	ld hl, $9000
 	ld bc, TilesEnd - Tiles
@@ -840,8 +845,8 @@ Then, we set <code>hl</code> to $9000, which is the address where we will start 
 <li><code>bc</code> contains how many bytes we have to copy.</li>
 </ul>
 <p>Then we arrive at the main loop.
-We read one byte from the source (line 6), and write it to the destination (line 7).
-We increment the destination (via the implicit <code>inc hl</code> done by <code>ld [hli], a</code>) and source pointers (line 8), so the following loop iteration processes the next byte.</p>
+We read one byte from the source (line 29), and write it to the destination (line 30).
+We increment the destination (via the implicit <code>inc hl</code> done by <code>ld [hli], a</code>) and source pointers (line 31), so the following loop iteration processes the next byte.</p>
 <p>Here’s the interesting part: since we’ve just copied one byte, that means we have one less to go, so we <code>dec bc</code>.
 (We have seen <code>dec</code> two lessons ago; as a refresher, it simply decreases the value stored in <code>bc</code> by one.)
 Since <code>bc</code> contains the amount of bytes that still need to be copied, it’s trivial to see that we should simply repeat the operation if <code>bc</code> != 0.</p>
@@ -853,7 +858,7 @@ Since <code>bc</code> contains the amount of bytes that still need to be copied,
 </div>
 <p><code>ld a, b</code> and <code>or c</code> “bitwise OR” <code>b</code> and <code>c</code> together; it’s enough to know for now that it leaves 0 in <code>a</code> if and only if <code>bc</code> == 0.
 And <code>or</code> updates the Z flag!
-So, after line 11, the Z flag is set if and only if <code>bc</code> == 0, that is, if we should exit the loop.</p>
+So, after line 34, the Z flag is set if and only if <code>bc</code> == 0, that is, if we should exit the loop.</p>
 <p>And this is where conditional jumps come into the picture!
 See, it’s possible to <strong>conditionally</strong> “take” a jump depending on the state of the flags.</p>
 <p>There are four “conditions”:</p>
@@ -863,7 +868,7 @@ See, it’s possible to <strong>conditionally</strong> “take” a jump dependi
 <tr><td>Carry</td><td><code>c</code></td><td>C is set (last operation overflowed)</td></tr>
 <tr><td>No carry</td><td><code>nc</code></td><td>C is not set (last operation did not overflow)</td></tr>
 </tbody></table>
-<p>Thus, <code>jp nz, CopyTiles</code> can be read as “if the Z flag is not set, then jump to <code>CopyTiles</code>“.
+<p>Thus, <code>jp nz, CopyTiles</code> can be read as “if the Z flag is not set, then jump to <code>CopyTiles</code>”.
 Since we’re jumping <em>backwards</em>, we will repeat the instructions again: we have just created a <strong>loop</strong>!</p>
 <p>Okay, we’ve been talking about the code a lot, and we have seen it run, but we haven’t really seen <em>how</em> it runs.
 Let’s watch the magic unfold in slow-motion in the next lesson!</p>
@@ -881,7 +886,7 @@ Let’s first explain the debugger’s layout:
 <img src="part1/../assets/img/debugger.png" alt="" />
 Top-left is the code viewer, bottom-left is the data viewer, top-right are some registers (as we saw in <a href="part1/registers.html">the registers lesson</a>), and bottom-right is the stack viewer.
 What’s the stack?
-We will answer that question a bit later... in Part Ⅱ 😅</p>
+We will answer that question a bit later… in Part Ⅱ 😅</p>
 <h2 id="setup-1"><a class="header" href="#setup-1">Setup</a></h2>
 <p>For now, let’s focus on the code viewer.
 If you focus the debugger while the emulator is running, it will pause, as indicated by the screen window’s title changing to <code>bgb (debugging)</code>.</p>
@@ -1006,7 +1011,7 @@ It is also in “Other” in the screen’s right-click menu.</p>
 <p><img src="part1/../assets/img/vram_viewer.png" alt="Screenshot of the VRAM viewer’s “Tiles” tab" /></p>
 <p>By default, it should open on the “Tiles” tab like in the image, but if not, please select that.
 We will come to the other tabs in due time.
-This one shows the tiles present in the Game Boy’s video memory (or “<abbr title="Video RAM">VRAM</abbr>“).</p>
+This one shows the tiles present in the Game Boy’s video memory (or “<abbr title="Video RAM">VRAM</abbr>”).</p>
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
@@ -1024,7 +1029,7 @@ In addition, manipulating whole tiles at once is much cheaper than manipulating 
 <p>The concept of a “tile” is very general, but on the Game Boy, tiles are <em>always</em> 8 by 8 pixels.
 Often, hardware tiles are grouped to manipulate them as larger tiles (often 16×16); to avoid the confusion, those are referred to as <strong>meta-tiles</strong>.</p>
 <h3 id="bpp"><a class="header" href="#bpp">“bpp”?</a></h3>
-<p>You may be wondering where that “2 bits/pixel” figure earlier came from...
+<p>You may be wondering where that “2 bits/pixel” figure earlier came from…
 This is something called “bit depth”.</p>
 <p>See, colors are <em>not</em> stored in the tiles themselves!
 Instead, it works like a coloring book: the tile itself contains 8 by 8 <em>indices</em>, not colors; you give the hardware a tile and a set of colors—a <strong>palette</strong>—and it colorizes them!
@@ -1035,7 +1040,7 @@ This is called “2 bits per pixel”, noted “2bpp”.</p>
 <p>With that in mind, we are ready to explain how these bytes turn into pixels!</p>
 <h2 id="encoding"><a class="header" href="#encoding">Encoding</a></h2>
 <p>As I explained, each pixel takes up 2 bits.
-Since there are 8 bits in a byte, you might expect each byte to contain 4 pixels... and you would be neither entirely right, nor entirely wrong.
+Since there are 8 bits in a byte, you might expect each byte to contain 4 pixels… and you would be neither entirely right, nor entirely wrong.
 See, each row of 8 pixels is stored in 2 bytes, but neither of these bytes contains the info for 4 pixels.
 (Think of it like a 10 € banknote torn in half: neither half is worth anything, but the full bill is worth, well, 10 €.)</p>
 <p>For each pixel, the least significant bit of its index is stored in the first byte, and the most significant bit is stored in the second byte.
@@ -1054,7 +1059,7 @@ It even makes a few cool tricks possible, as we will see (much) later!</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="palettes"><a class="header" href="#palettes">Palettes</a></h1>
 <p>In the previous lesson, I briefly mentioned that colors are applied to tiles via <em>palettes</em>, but we haven’t talked much about those yet.</p>
-<p>The black &amp; white Game Boy has three palettes, one for the background called <a href="https://gbdev.io/pandocs/Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a> (”BackGround Palette”), and two for the objects called <a href="https://gbdev.io/pandocs/Palettes.html#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><code>OBP0</code></a> and <a href="https://gbdev.io/pandocs/Palettes.html#ff48---obp1-object-palette-1-data-rw---non-cgb-mode-only"><code>OBP1</code></a> (”OBject Palette 0/1”).
+<p>The black &amp; white Game Boy has three palettes, one for the background called <a href="https://gbdev.io/pandocs/Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a> (“BackGround Palette”), and two for the objects called <a href="https://gbdev.io/pandocs/Palettes.html#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><code>OBP0</code></a> and <a href="https://gbdev.io/pandocs/Palettes.html#ff48---obp1-object-palette-1-data-rw---non-cgb-mode-only"><code>OBP1</code></a> (“OBject Palette 0/1”).
 If you are wondering what “objects” are, you will have to wait until Part Ⅱ to find out; for now, let’s focus on the background.</p>
 <div class="box tip decorated">
 <div><p>🌈</p></div>
@@ -1139,7 +1144,7 @@ We will understand why later, but for now, please bear with it!</p>
 <div><p>🧐</p></div>
 <div>
 <p>Some spell them “tile map”, some “tilemap”.
-I will be using the latter by preference, but I also stay consistent with it in the code (<code>Tilemap</code> and not <code>TileMap</code>), as well as later when we will talk about attribute maps (”attrmap” and <code>Attrmap</code> instead of <code>AttrMap</code>).</p>
+I will be using the latter by preference, but I also stay consistent with it in the code (<code>Tilemap</code> and not <code>TileMap</code>), as well as later when we will talk about attribute maps (“attrmap” and <code>Attrmap</code> instead of <code>AttrMap</code>).</p>
 </div>
 </div>
 <p>We are <em>almost</em> there.
@@ -1217,7 +1222,7 @@ Trust me, everything you have learned and will learn is worth it! ✊</p>
 <li>Writing graphics in that way sound tedious, is there no other way?</li>
 <li>Actually, wait, how do we make a game out of all this??</li>
 </ul>
-<p>... All of that answered, and more, in Part Ⅱ! 👀</p>
+<p>… All of that answered, and more, in Part Ⅱ! 👀</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="work-in-progress"><a class="header" href="#work-in-progress">Work in progress</a></h1>
 <div class="box warning">
 <p class="box-title">🚧 🚧 🚧 🚧 🚧 🚧 🚧</p><p>As explained in the initial tutorial presentation, Part Ⅱ consists of us building an <em>Arkanoid</em> game.
@@ -1231,7 +1236,7 @@ Please hold tight while I (and others! ^^) are working on this, maybe <a href="h
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="where-to-go-next"><a class="header" href="#where-to-go-next">Where to go next</a></h1>
 <p>Oh.
-Well, you’ve reached the end of the tutorial...
+Well, you’ve reached the end of the tutorial…
 And yes, as you can see, it’s not finished <em>yet</em>.
 I’m actively working on fixing that, though, please be a little patient :)</p>
 <p>In the meantime, the best course of action is to peruse the <a href="resources.html">resources</a> in the next section, and experiment by yourself.
@@ -1239,7 +1244,7 @@ Well, given that, it may be a good idea to <a href="help-feedback.html">ask arou
 A lot of the problems and questions you will be encountering have already been solved, so others can—and will!—help you getting started faster.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
 <p>A.k.a. “where to go from here”.</p>
-<p>FIXME: This is not properly written yet...</p>
+<p>FIXME: This is not properly written yet…</p>
 <ul>
 <li><a href="https://gbdev.io">GBDev community home page</a> and <a href="https://gbdev.io/chat">chat channels</a>.</li>
 <li><a href="https://rgbds.gbdev.io/docs/">RGBDS online documentation</a>, this includes <a href="https://rgbds.gbdev.io/docs/gbz80.7">an instruction reference</a>.</li>
@@ -1261,32 +1266,43 @@ A lot of the problems and questions you will be encountering have already been s
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="js/linenos.js"></script>
+
         <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
     </body>
 </html>

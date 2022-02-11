@@ -4,13 +4,14 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Memory - GB ASM Tutorial</title>
+
+
         <!-- Custom HTML head -->
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site:id" content="@issotm"/>
 <meta property="og:title" content="Memory - GB ASM Tutorial" />
 <meta property="og:image" content="https://eldred.fr/gb-asm-tutorial/assets/banner/1200x628.png" />
 <meta property="og:site_name" content="GB ASM Tutorial"/>
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
@@ -23,9 +24,11 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
@@ -33,6 +36,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../css/custom.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -91,8 +95,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -125,6 +128,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/memory.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -138,6 +142,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -158,7 +163,7 @@ Since you have the basics, from now on, we’ll be looking at more and more conc
 </div>
 </div>
 <p>If we look at line 29, we see <code>ld a, [de]</code>.
-Given what we just learned, this copies a value into register <code>a</code>... but where from?
+Given what we just learned, this copies a value into register <code>a</code>… but where from?
 What do these brackets mean?
 To answer that, we need to talk about <em>memory</em>.</p>
 <h2 id="whats-a-memory"><a class="header" href="#whats-a-memory">What’s a memory?</a></h2>
@@ -175,7 +180,7 @@ Like street numbers!
 The first cell has address 0, then address 1, 2, and so on.
 On the Game Boy, each cell contains <em>8 bits</em>, i.e. a <em>byte</em>.</p>
 <p>How many cells are there?
-Well, this is actually a trick question...</p>
+Well, this is actually a trick question…</p>
 <h2 id="the-many-types-of-memory"><a class="header" href="#the-many-types-of-memory">The many types of memory</a></h2>
 <p>There are several memory chips in the Game Boy, but we can put them into two categories: <abbr title="Read-Only Memory">ROM</abbr> and <abbr title="Random Access Memory">RAM</abbr><sup class="footnote-reference"><a href="#rom_ram_and">2</a></sup>.
 ROM simply designates memory that cannot be written to<sup class="footnote-reference"><a href="#rom_ro">3</a></sup>, and RAM memory that can be written to.</p>
@@ -226,8 +231,8 @@ For example, consider the <code>ld de, Tiles</code> at line 25.
 <code>Tiles</code> (line 64) is referring to the first byte of the tile data; if we assume that the tile data ends up being stored starting at $0193, then <code>ld de, Tiles</code> is equivalent to <code>ld de, $0193</code>!</p>
 <h2 id="whats-with-the-brackets"><a class="header" href="#whats-with-the-brackets">What’s with the brackets?</a></h2>
 <p>Right, we came into this because we wanted to know what the brackets in <code>ld a, [de]</code> mean.
-Well, they can basically be read as “at address...”.
-For example, <code>ld a, b</code> can be read as “copy into <code>a</code> the value stored in <code>b</code>“; <code>ld a, [$5414]</code> would be read as “copy into <code>a</code> the value stored at address $5414”, and <code>ld a, [de]</code> would be read as “copy into <code>a</code> the value stored at address <code>de</code>“.
+Well, they can basically be read as “at address…”.
+For example, <code>ld a, b</code> can be read as “copy into <code>a</code> the value stored in <code>b</code>”; <code>ld a, [$5414]</code> would be read as “copy into <code>a</code> the value stored at address $5414”, and <code>ld a, [de]</code> would be read as “copy into <code>a</code> the value stored at address <code>de</code>”.
 Wait, what does that mean?
 Well, if <code>de</code> contains the value $5414, then <code>ld a, [de]</code> will do the same thing as <code>ld a, [$5414]</code>.</p>
 <div class="box tip">
@@ -240,11 +245,11 @@ It’s actually a special notation, which can also be written as <code>[hl+]</co
 It functions as <code>[hl]</code>, but <code>hl</code> is <em>incremented</em> just after memory is accessed.
 <code>[hld]</code>/<code>[hl-]</code> is the mirror of this one, <em>decrementing</em> <code>hl</code> instead of incrementing it.</p>
 <h2 id="an-example"><a class="header" href="#an-example">An example</a></h2>
-<p>So, if we look at the first two instructions of <code>.copyTiles</code>:</p>
-<pre><code class="language-rgbasm">	ld a, [de]
+<p>So, if we look at the first two instructions of <code>CopyTiles</code>:</p>
+<pre><code class="language-rgbasm linenos start=29">	ld a, [de]
 	ld [hli], a
 </code></pre>
-<p>...we can see that we’re copying the byte in memory <em>pointed to</em> by <code>de</code> (that is, whose address is contained in <code>de</code>) into the byte pointed to by <code>hl</code>.
+<p>…we can see that we’re copying the byte in memory <em>pointed to</em> by <code>de</code> (that is, whose address is contained in <code>de</code>) into the byte pointed to by <code>hl</code>.
 Here, <code>a</code> serves as temporary storage, since the CPU is unable to perform <code>ld [hl], [de]</code> directly.</p>
 <p>While we’re at this, let’s examine the rest of <code>.copyTiles</code> in the following lessons!</p>
 <hr />
@@ -271,9 +276,11 @@ Most bootleg / “repro” Game Boy cartridges you can find nowadays actually co
                             <a rel="prev" href="../part1/assembly.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../part1/operations.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -283,6 +290,7 @@ Most bootleg / “repro” Game Boy cartridges you can find nowadays actually co
                     <a rel="prev" href="../part1/assembly.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../part1/operations.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -290,17 +298,25 @@ Most bootleg / “repro” Game Boy cartridges you can find nowadays actually co
 
         </div>
 
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="../js/linenos.js"></script>
+
+
     </body>
 </html>

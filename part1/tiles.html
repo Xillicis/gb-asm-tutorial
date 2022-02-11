@@ -4,13 +4,14 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Tiles - GB ASM Tutorial</title>
+
+
         <!-- Custom HTML head -->
         <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site:id" content="@issotm"/>
 <meta property="og:title" content="Tiles - GB ASM Tutorial" />
 <meta property="og:image" content="https://eldred.fr/gb-asm-tutorial/assets/banner/1200x628.png" />
 <meta property="og:site_name" content="GB ASM Tutorial"/>
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A complete guide to programming Game Boy games in assembly.">
@@ -23,9 +24,11 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
@@ -33,6 +36,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../css/custom.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -91,8 +95,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -125,6 +128,7 @@
                         <a href="https://github.com/ISSOtm/gb-asm-tutorial/edit/master/src/part1/tiles.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -138,6 +142,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -173,7 +178,7 @@ It is also in “Other” in the screen’s right-click menu.</p>
 <p><img src="../assets/img/vram_viewer.png" alt="Screenshot of the VRAM viewer’s “Tiles” tab" /></p>
 <p>By default, it should open on the “Tiles” tab like in the image, but if not, please select that.
 We will come to the other tabs in due time.
-This one shows the tiles present in the Game Boy’s video memory (or “<abbr title="Video RAM">VRAM</abbr>“).</p>
+This one shows the tiles present in the Game Boy’s video memory (or “<abbr title="Video RAM">VRAM</abbr>”).</p>
 <div class="box tip decorated">
 <div><p>🤔</p></div>
 <div>
@@ -191,7 +196,7 @@ In addition, manipulating whole tiles at once is much cheaper than manipulating 
 <p>The concept of a “tile” is very general, but on the Game Boy, tiles are <em>always</em> 8 by 8 pixels.
 Often, hardware tiles are grouped to manipulate them as larger tiles (often 16×16); to avoid the confusion, those are referred to as <strong>meta-tiles</strong>.</p>
 <h3 id="bpp"><a class="header" href="#bpp">“bpp”?</a></h3>
-<p>You may be wondering where that “2 bits/pixel” figure earlier came from...
+<p>You may be wondering where that “2 bits/pixel” figure earlier came from…
 This is something called “bit depth”.</p>
 <p>See, colors are <em>not</em> stored in the tiles themselves!
 Instead, it works like a coloring book: the tile itself contains 8 by 8 <em>indices</em>, not colors; you give the hardware a tile and a set of colors—a <strong>palette</strong>—and it colorizes them!
@@ -202,7 +207,7 @@ This is called “2 bits per pixel”, noted “2bpp”.</p>
 <p>With that in mind, we are ready to explain how these bytes turn into pixels!</p>
 <h2 id="encoding"><a class="header" href="#encoding">Encoding</a></h2>
 <p>As I explained, each pixel takes up 2 bits.
-Since there are 8 bits in a byte, you might expect each byte to contain 4 pixels... and you would be neither entirely right, nor entirely wrong.
+Since there are 8 bits in a byte, you might expect each byte to contain 4 pixels… and you would be neither entirely right, nor entirely wrong.
 See, each row of 8 pixels is stored in 2 bytes, but neither of these bytes contains the info for 4 pixels.
 (Think of it like a 10 € banknote torn in half: neither half is worth anything, but the full bill is worth, well, 10 €.)</p>
 <p>For each pixel, the least significant bit of its index is stored in the first byte, and the most significant bit is stored in the second byte.
@@ -227,9 +232,11 @@ It even makes a few cool tricks possible, as we will see (much) later!</p>
                             <a rel="prev" href="../part1/tracing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../part1/palettes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -239,6 +246,7 @@ It even makes a few cool tricks possible, as we will see (much) later!</p>
                     <a rel="prev" href="../part1/tracing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../part1/palettes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -246,17 +254,25 @@ It even makes a few cool tricks possible, as we will see (much) later!</p>
 
         </div>
 
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="../js/linenos.js"></script>
+
+
     </body>
 </html>
