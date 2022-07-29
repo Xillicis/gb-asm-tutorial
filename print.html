@@ -416,7 +416,7 @@ Thus, we can generalize the principle outlined above, and write these two number
      = 1 × 2^10 + 0 × 2^9 + 0 × 2^8 + 0 × 2^7 + 0 × 2^6 + 0 × 2^5 + 0 × 2^4 + 0 × 2^3 + 0 × 2^2 + 0 × 2^1 + 0 × 2^0
        ↑          ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑         ↑
 </code></pre>
-<p>So, by applying the same principle, we can say that in base 2, 42 is written as <code>101010</code>, and 2048 as <code>1000000000</code>.
+<p>So, by applying the same principle, we can say that in base 2, 42 is written as <code>101010</code>, and 1024 as <code>10000000000</code>. 
 Since you can’t tell ten (decimal 10) and two (binary 10) apart, RGBDS assembly has binary numbers prefixed by a percent sign: 10 is ten, and %10 is two.</p>
 <p>Okay, but why base 2 specifically?
 Rather conveniently, a bit can only be 0 or 1, which are easy to represent as “ON” or “OFF”, empty or full, etc!
@@ -426,8 +426,8 @@ Computers thus primarily manipulate binary numbers, and this has a <em>slew</em>
 <h2 id="hexadecimal"><a class="header" href="#hexadecimal">Hexadecimal</a></h2>
 <p>To recap, decimal isn’t practical for a computer to work with, instead relying on binary (base 2) numbers.
 Okay, but binary is really impractical to work with.
-Take %10000000000, aka 2048; when in decimal only 4 digits are required, binary instead needs 10!
-And, did you notice that I actually wrote one zero too many?
+Take %10000000000, aka 2048; when in decimal only 4 digits are required, binary instead needs 12!
+And, did you notice that I actually wrote one zero too few?
 Fortunately, hexadecimal is here to save the day! 🦸</p>
 <p>Base 16 works just the same as every other base, but with 16 digits, called <em>nibbles</em>: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, and F.</p>
 <pre><code>  42 =            2 × 16   + 10
