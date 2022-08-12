@@ -168,12 +168,13 @@ PC increases automatically as the CPU reads instructions, so “by default” th
 Hence the name.</p>
 <p>Okay, so, let’s talk about those jump instructions, shall we?
 There are four of them:</p>
-<table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Jump</td><td><code>jp</code></td><td>Jump execution to a location</td></tr>
 <tr><td>Jump Relative</td><td><code>jr</code></td><td>Jump to a location close by</td></tr>
 <tr><td>Call</td><td><code>call</code></td><td>Call a subroutine</td></tr>
 <tr><td>Return</td><td><code>ret</code></td><td>Return from a subroutine</td></tr>
 </tbody></table>
+</div>
 <p>We will focus on <code>jp</code> for now.
 <code>jp</code>, such as the one line 5, simply sets PC to its argument, jumping execution there.
 In other words, after executing <code>jp EntryPoint</code> (line 5), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 9 + 1 --> 16).</p>
@@ -231,12 +232,13 @@ So, after line 34, the Z flag is set if and only if <code>bc</code> == 0, that i
 <p>And this is where conditional jumps come into the picture!
 See, it’s possible to <strong>conditionally</strong> “take” a jump depending on the state of the flags.</p>
 <p>There are four “conditions”:</p>
-<table><thead><tr><th>Name</th><th>Mnemonic</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Mnemonic</th><th>Description</th></tr></thead><tbody>
 <tr><td>Zero</td><td><code>z</code></td><td>Z is set (last operation had a result of 0)</td></tr>
 <tr><td>Non-zero</td><td><code>nz</code></td><td>Z is not set (last operation had a non-zero result)</td></tr>
 <tr><td>Carry</td><td><code>c</code></td><td>C is set (last operation overflowed)</td></tr>
 <tr><td>No carry</td><td><code>nc</code></td><td>C is not set (last operation did not overflow)</td></tr>
 </tbody></table>
+</div>
 <p>Thus, <code>jp nz, CopyTiles</code> can be read as “if the Z flag is not set, then jump to <code>CopyTiles</code>”.
 Since we’re jumping <em>backwards</em>, we will repeat the instructions again: we have just created a <strong>loop</strong>!</p>
 <p>Okay, we’ve been talking about the code a lot, and we have seen it run, but we haven’t really seen <em>how</em> it runs.

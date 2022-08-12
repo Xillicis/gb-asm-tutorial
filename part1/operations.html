@@ -174,12 +174,13 @@ It works the same as <code>sub</code>, but it discards the result instead of wri
 <p>The time has come to talk about the special-purpose register (remember those?) <code>f</code>, for, well, <em>flags</em>.
 The <code>f</code> register contains 4 bits, called “flags”, which are updated depending on an operation’s results.
 These 4 flags are:</p>
-<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody>
 <tr><td>Z</td><td>Zero flag</td></tr>
 <tr><td>N</td><td>Addition/subtraction</td></tr>
 <tr><td>H</td><td>Half-carry</td></tr>
 <tr><td>C</td><td>Carry</td></tr>
 </tbody></table>
+</div>
 <p>Yes, there is a flag called “C” and a register called “c”, and <strong>they are different, unrelated things</strong>.
 This makes the syntax a bit confusing at the beginning, but they are always used in different contexts, so it’s fine.</p>
 <p>We will forget about N and H for now; let’s focus on Z and C.
@@ -229,12 +230,12 @@ See, when performing a subtraction, the carry flag gets set when the result goes
 And, conversely, we know that if it’s <em>not</em> set, <code>a &gt;= operand</code>.
 Great!</p>
 <h2 id="instruction-summary"><a class="header" href="#instruction-summary">Instruction summary</a></h2>
-<table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Add</td><td><code>add</code></td><td>Adds values to <code>a</code></td></tr>
 <tr><td>Subtract</td><td><code>sub</code></td><td>Subtracts values from <code>a</code></td></tr>
 <tr><td>Compare</td><td><code>cp</code></td><td>Compares values with what’s contained in <code>a</code></td></tr>
 </tbody></table>
-
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

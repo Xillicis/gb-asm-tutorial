@@ -439,7 +439,7 @@ Fortunately, hexadecimal is here to save the day! 🦸</p>
 <p>Like binary, we will use a prefix to denote hexadecimal, namely <code>$</code>.
 So, 42 = $2A, and 1024 = $400.
 This is <em>much</em> more compact than binary, and slightly more than decimal, too; but what makes hexadecimal very interesting is that one nibble corresponds <em>exactly</em> to 4 bits!</p>
-<table><thead><tr><th style="text-align: center">Nibble</th><th style="text-align: center">Bits</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Nibble</th><th style="text-align: center">Bits</th></tr></thead><tbody>
 <tr><td style="text-align: center">$0</td><td style="text-align: center">%0000</td></tr>
 <tr><td style="text-align: center">$1</td><td style="text-align: center">%0001</td></tr>
 <tr><td style="text-align: center">$2</td><td style="text-align: center">%0010</td></tr>
@@ -457,6 +457,7 @@ This is <em>much</em> more compact than binary, and slightly more than decimal, 
 <tr><td style="text-align: center">$E</td><td style="text-align: center">%1110</td></tr>
 <tr><td style="text-align: center">$F</td><td style="text-align: center">%1111</td></tr>
 </tbody></table>
+</div>
 <p>This makes it very easy to convert between binary and hexadecimal, while retaining a compact enough notation.
 Thus, hexadecimal is used a lot more than binary.
 And, don’t worry, decimal can still be used 😜</p>
@@ -567,9 +568,10 @@ For example, in “melt the chocolate and butter in a saucepan”, <em>the whole
 <code>ld</code> stands for “LoaD”, and its purpose is simply to copy data from its right operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Right-Hand Side">RHS</abbr>”</a>) into its left operand (<a href="https://en.wikipedia.org/wiki/Sides_of_an_equation">“<abbr title="Left-Hand Side">LHS</abbr>”</a>).
 For example, take line 11’s <code>ld a, 0</code>: it copies (“loads”) the value 0 into the 8-bit register <code>a</code><sup class="footnote-reference"><a href="#ld_imm_from">2</a></sup>.
 If you look further in the file, line 33 has <code>ld a, b</code>, which causes the value in register <code>b</code> to be copied into register <code>a</code>.</p>
-<table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Load</td><td><code>ld</code></td><td>Copies values around</td></tr>
 </tbody></table>
+</div>
 <div class="box tip decorated">
 <div><p>ℹ️</p></div>
 <div>
@@ -723,7 +725,7 @@ Well, now, we can reframe this question as “how many logical addresses are the
 Therefore, there are 2^16 = 65536 logical addresses, from $0000 to $FFFF.
 How many physical addresses, though?
 Well, here is a memory map <a href="https://gbdev.io/pandocs/Memory_Map.html">courtesy of Pan Docs</a> (though I will simplify it a bit):</p>
-<table><thead><tr><th>Start</th><th>End</th><th>Name</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Start</th><th>End</th><th>Name</th><th>Description</th></tr></thead><tbody>
 <tr><td>$0000</td><td>$7FFF</td><td>ROM</td><td>The game ROM, supplied by the cartridge.</td></tr>
 <tr><td>$8000</td><td>$9FFF</td><td>VRAM</td><td>Video RAM, where graphics are stored and arranged.</td></tr>
 <tr><td>$A000</td><td>$BFFF</td><td>SRAM</td><td>Save RAM, optionally supplied by the cartridge to save data to.</td></tr>
@@ -733,6 +735,7 @@ Well, here is a memory map <a href="https://gbdev.io/pandocs/Memory_Map.html">co
 <tr><td>$FF80</td><td>$FFFE</td><td>HRAM</td><td>High RAM, a tiny bit of general-purpose RAM which can be accessed faster.</td></tr>
 <tr><td>$FFFF</td><td>$FFFF</td><td>IE</td><td>A lone I/O byte that’s separated from the rest for some reason.</td></tr>
 </tbody></table>
+</div>
 <p>$8000 + $2000 + $2000 + $2000 + $A0 + $80 + $7F + 1 adds up to $E1A0, or 57760 bytes of memory that can be <em>actually</em> accessed.
 The curious reader will naturally ask, “What about the remaining 7776 bytes? What happens when accessing them?”; the answer is: “It depends, it’s complicated; avoid accessing them”.</p>
 <h2 id="labels"><a class="header" href="#labels">Labels</a></h2>
@@ -919,12 +922,13 @@ It works the same as <code>sub</code>, but it discards the result instead of wri
 <p>The time has come to talk about the special-purpose register (remember those?) <code>f</code>, for, well, <em>flags</em>.
 The <code>f</code> register contains 4 bits, called “flags”, which are updated depending on an operation’s results.
 These 4 flags are:</p>
-<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody>
 <tr><td>Z</td><td>Zero flag</td></tr>
 <tr><td>N</td><td>Addition/subtraction</td></tr>
 <tr><td>H</td><td>Half-carry</td></tr>
 <tr><td>C</td><td>Carry</td></tr>
 </tbody></table>
+</div>
 <p>Yes, there is a flag called “C” and a register called “c”, and <strong>they are different, unrelated things</strong>.
 This makes the syntax a bit confusing at the beginning, but they are always used in different contexts, so it’s fine.</p>
 <p>We will forget about N and H for now; let’s focus on Z and C.
@@ -974,12 +978,12 @@ See, when performing a subtraction, the carry flag gets set when the result goes
 And, conversely, we know that if it’s <em>not</em> set, <code>a &gt;= operand</code>.
 Great!</p>
 <h2 id="instruction-summary"><a class="header" href="#instruction-summary">Instruction summary</a></h2>
-<table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Add</td><td><code>add</code></td><td>Adds values to <code>a</code></td></tr>
 <tr><td>Subtract</td><td><code>sub</code></td><td>Subtracts values from <code>a</code></td></tr>
 <tr><td>Compare</td><td><code>cp</code></td><td>Compares values with what’s contained in <code>a</code></td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="jumps"><a class="header" href="#jumps">Jumps</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="jumps"><a class="header" href="#jumps">Jumps</a></h1>
 <div class="box tip">
 <p>Once this lesson is done, we will be able to understand all of <code>CopyTiles</code>!</p>
 </div>
@@ -993,12 +997,13 @@ PC increases automatically as the CPU reads instructions, so “by default” th
 Hence the name.</p>
 <p>Okay, so, let’s talk about those jump instructions, shall we?
 There are four of them:</p>
-<table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Instruction</th><th>Mnemonic</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Jump</td><td><code>jp</code></td><td>Jump execution to a location</td></tr>
 <tr><td>Jump Relative</td><td><code>jr</code></td><td>Jump to a location close by</td></tr>
 <tr><td>Call</td><td><code>call</code></td><td>Call a subroutine</td></tr>
 <tr><td>Return</td><td><code>ret</code></td><td>Return from a subroutine</td></tr>
 </tbody></table>
+</div>
 <p>We will focus on <code>jp</code> for now.
 <code>jp</code>, such as the one line 5, simply sets PC to its argument, jumping execution there.
 In other words, after executing <code>jp EntryPoint</code> (line 5), the next instruction executed is the one below <code>EntryPoint</code> (line <!-- should be 9 + 1 --> 16).</p>
@@ -1056,12 +1061,13 @@ So, after line 34, the Z flag is set if and only if <code>bc</code> == 0, that i
 <p>And this is where conditional jumps come into the picture!
 See, it’s possible to <strong>conditionally</strong> “take” a jump depending on the state of the flags.</p>
 <p>There are four “conditions”:</p>
-<table><thead><tr><th>Name</th><th>Mnemonic</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Mnemonic</th><th>Description</th></tr></thead><tbody>
 <tr><td>Zero</td><td><code>z</code></td><td>Z is set (last operation had a result of 0)</td></tr>
 <tr><td>Non-zero</td><td><code>nz</code></td><td>Z is not set (last operation had a non-zero result)</td></tr>
 <tr><td>Carry</td><td><code>c</code></td><td>C is set (last operation overflowed)</td></tr>
 <tr><td>No carry</td><td><code>nc</code></td><td>C is not set (last operation did not overflow)</td></tr>
 </tbody></table>
+</div>
 <p>Thus, <code>jp nz, CopyTiles</code> can be read as “if the Z flag is not set, then jump to <code>CopyTiles</code>”.
 Since we’re jumping <em>backwards</em>, we will repeat the instructions again: we have just created a <strong>loop</strong>!</p>
 <p>Okay, we’ve been talking about the code a lot, and we have seen it run, but we haven’t really seen <em>how</em> it runs.
