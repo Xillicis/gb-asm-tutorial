@@ -268,8 +268,8 @@ For example, <code>rgbasm -g '.xXO' (...)</code> or <code>OPT g.xXO</code> would
 <pre><code class="language-rgbasm">	dw `01230123 ; This is equivalent to `db $55,$33`
 </code></pre>
 <p>You may have noticed that we are using <code>dw</code> instead of <code>db</code>; the difference between these two will be explained later.
-We already have tiles made for this project, so you can copy <a href="../../unbricked/getting-started/tileset.asm">this premade file</a>, and paste it at the end of your code.</p>
-<p>Then copy the tilemap from <a href="../../unbricked/getting-started/tilemap.asm">this file</a>, and paste it after the <code>TilesEnd</code> label.</p>
+We already have tiles made for this project, so you can copy <a href="https://github.com/ISSOtm/gb-asm-tutorial/raw/master/unbricked/getting-started/tileset.asm">this premade file</a>, and paste it at the end of your code.</p>
+<p>Then copy the tilemap from <a href="https://github.com/ISSOtm/gb-asm-tutorial/raw/master/unbricked/getting-started/tilemap.asm">this file</a>, and paste it after the <code>TilesEnd</code> label.</p>
 <p>You can build the ROM now, by running the following commands in your terminal:</p>
 <pre><code><span class="console-line hljs-meta"></span><span class="language-bash">rgbasm -L -o main.o main.asm</span>
 <span class="console-line hljs-meta"></span><span class="language-bash">rgblink -o unbricked.gb main.o</span>
@@ -292,17 +292,17 @@ You can use one of the following pre-made logos, or try coming up with your own!
 <li>
 <p><strong>RGBDS Logo</strong></p>
 <p><img src="../assets/part2/img/rgbds.png" alt="The RGBDS Logo" /></p>
-<p><a href="../../unbricked/getting-started/rgbds.asm">Source</a></p>
+<p><a href="https://github.com/ISSOtm/gb-asm-tutorial/raw/master/unbricked/getting-started/rgbds.asm">Source</a></p>
 </li>
 <li>
 <p><strong>Duck</strong></p>
 <p><img src="../assets/part2/img/duck.png" alt="A pixel-art duck" /></p>
-<p><a href="../../unbricked/getting-started/duck.asm">Source</a></p>
+<p><a href="https://github.com/ISSOtm/gb-asm-tutorial/raw/master/unbricked/getting-started/duck.asm">Source</a></p>
 </li>
 <li>
 <p><strong>Tail</strong></p>
 <p><img src="../assets/part2/img/tail.png" alt="A silhouette of a tail" /></p>
-<p><a href="../../unbricked/getting-started/tail.asm">Source</a></p>
+<p><a href="https://github.com/ISSOtm/gb-asm-tutorial/raw/master/unbricked/getting-started/tail.asm">Source</a></p>
 </li>
 </ul>
 <p>Replace the blank tiles with the new graphics, build the game again, and you should see your logo of choice in the bottom-right!</p>
