@@ -29,7 +29,7 @@ Return        | `ret`    | Return from a subroutine
 
 We will focus on `jp` for now.
 `jp`, such as the one line {{#line_no_of "^\s*jp" ../assets/hello-world.asm}}, simply sets PC to its argument, jumping execution there.
-In other words, after executing `jp EntryPoint` (line {{#line_no_of "^\s*jp EntryPoint" ../assets/hello-world.asm}}), the next instruction executed is the one below `EntryPoint` (line <!-- should be {{#line_no_of "^\s*EntryPoint:" ../assets/hello-world.asm}} + 1 --> 16).
+In other words, after executing `jp EntryPoint` (line {{#line_no_of "^\s*jp EntryPoint" ../assets/hello-world.asm}}), the next instruction executed is the one below `EntryPoint` (line <!-- should be {{#line_no_of "^\s*EntryPoint:" ../assets/hello-world.asm}} + 1 --> 11).
 
 ::: tip:🤔
 
